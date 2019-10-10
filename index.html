@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="en,fr">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+          content="A reasonable price for a perfect website. We are specialist in making beautiful websites and professional graphic design.">
+
+    <meta name="og:title" property="og:title"
+          content="A reasonable price for a perfect website. We are specialist in making beautiful websites and professional graphic design.">
+    <meta name="robots" content="index, follow">
+
+    <script src="js/jquery341.js"></script>
+    <link rel="shortcut icon" href="images/logo.ico"/>
+    <link rel="apple-touch-icon" href="images/logo.ico"/>
+    <script src="js/angular178.js"></script>
+    <script src="js/angular178_route.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Playfair+Display:400,400i,700|Material+Icons&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap431.css">
+    <script src="js/texts.js"></script>
+    <script src="js/mw.js"></script>
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/mw.css">
+    <title>Title</title>
+</head>
+<body ng-app="mwApp" ng-controller="mwCtrl">
+
+<div class="container">
+    <section class="header container">
+        <a href="#"><img src="images/logo.png">MontrealWEB</a>
+        <i class="material-icons" ng-click="openMenu()">menu</i>
+    </section>
+    <div class="menu" ng-class="{'open': MenuIsOpen === true}">
+        <div class="container">
+            <ul>
+                <li><i class="material-icons" ng-click="openMenu()">close</i></li>
+                <li><a href="#home-section">home</a></li>
+                <li><a href="#what-we-do-section">{{text.en.menu.what_we_do}}</a></li>
+                <li><a href="#portfolio-section">{{text.en.menu.portfolio}}</a></li>
+                <li><a href="#about-section">{{text.en.menu.about_us}}</a></li>
+                <li><a href="#contact-section">{{text.en.menu.contact_us}}</a></li>
+                <li><a ng-click="changeLang()"><img ng-src="images/{{text.en.menu.lang}}_flag.png">{{text.en.menu.lang}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div ng-view></div>
+    <footer></footer>
+</div>
+</body>
+</html>
