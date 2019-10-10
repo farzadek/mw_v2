@@ -4,7 +4,8 @@ $text-gray-9: #999999;
 $orange: #f7941e;
 $light-blue: #25aae1;
 $dark-blue: #262262;
-
+$primary-font: 'Oswald';
+$secondary-font:'Playfair Display';
 @font-face {
     font-family: icomoon;
     src: url('../fonts/icomoon/fonts/icomoon.svg');
@@ -27,7 +28,7 @@ body {
 .btn-bl {
     color: #ffffff;
     background-color: $light-blue;
-    font-family: Oswald;
+    font-family: $primary-font;
     border-color: $text-gray-9;
 }
 
@@ -69,7 +70,7 @@ body {
         left: .5em;
         top: 50%;
         transform: translateY(-50%);
-        font-family: Oswald;
+        font-family: $primary-font;
 
         img {
             height: 40px;
@@ -133,7 +134,7 @@ body {
 
                 a {
                     color: $text-gray-3;
-                    font-family: Oswald;
+                    font-family: $primary-font;
                     font-size: 1.75em;
                     text-transform: uppercase;
 
@@ -181,7 +182,7 @@ body {
         left: 5%;
 
         h1 {
-            font-family: Oswald;
+            font-family: $primary-font;
             display: block;
             font-weight: bold;
             font-size: 6em;
@@ -189,7 +190,7 @@ body {
         }
 
         h3 {
-            font-family: Oswald;
+            font-family: $primary-font;
             display: block;
             font-weight: bold;
             font-size: 1.5em;
@@ -232,7 +233,7 @@ body {
 
     h1 {
         color: $text-gray-6;
-        font-family: 'Playfair Display';
+        font-family: $secondary-font;
         margin-left: 5%;
         margin-bottom: .5em;
         text-transform: uppercase;
@@ -254,7 +255,7 @@ body {
                 }
 
                 h2 {
-                    font-family: Oswald;
+                    font-family: $primary-font;
                     color: $light-blue;
                     font-size: 1.75em;
 
@@ -264,7 +265,7 @@ body {
                 }
 
                 p {
-                    font-family: 'Playfair Display';
+                    font-family: $secondary-font;
                     color: $text-gray-3;
                     text-align: justify;
                     text-overflow: ellipsis;
@@ -360,7 +361,7 @@ body {
     margin-top: 6em;
     position: relative;
     background-color: white;
-    font-family: 'Playfair Display';
+    font-family: $secondary-font;
 
     hr {
         width: 60%;
@@ -385,17 +386,17 @@ body {
     .part1 {
         width: 60%;
         margin: 0 auto 3em;
-
+        padding-top: 1em;
         h1 {
             color: $text-gray-6;
-            font-family: 'Playfair Display';
+            font-family: $secondary-font;
             text-transform: uppercase;
             font-size: 2em;
         }
 
         p {
             color: $text-gray-9;
-            font-family: 'Playfair Display';
+            font-family: $secondary-font;
             width: 80%;
             margin-left: 15%;
             font-size: 1.25em;
@@ -411,7 +412,7 @@ body {
 
             h1 {
                 color: $text-gray-6;
-                font-family: 'Playfair Display';
+                font-family: $secondary-font;
                 margin-left: 5%;
                 margin-bottom: .5em;
                 text-transform: uppercase;
@@ -475,7 +476,7 @@ body {
                             }
 
                             h3 {
-                                font-family: Oswald;
+                                font-family: $primary-font;
                                 text-transform: uppercase;
                                 margin-bottom: .5em;
                                 display: block;
@@ -483,7 +484,7 @@ body {
                             }
 
                             span {
-                                font-family: "Playfair Display";
+                                font-family: $secondary-font;
                                 font-style: italic;
                                 font-size: .75em;
                                 padding: 0 4px 3px 4px;
@@ -708,10 +709,11 @@ body {
     display: block;
     margin-top: 6em;
     position: relative;
-    font-family: 'Playfair Display';
+    font-family: $secondary-font;
 
     div {
         position: relative;
+
         img {
             height: 100%;
             position: absolute;
@@ -744,15 +746,83 @@ body {
     }
 }
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 576px) {
     .section-4 {
         margin-top: 4em;
+
         div {
             min-height: 250px;
             overflow: hidden;
+
             img {
                 width: 100%;
                 bottom: 0;
+            }
+        }
+    }
+}
+
+//* ========================================================================= */
+//* SECTION-5                                                                 */
+//* ========================================================================= */
+.section-5 {
+    width: 100%;
+    display: block;
+    margin-top: 6em;
+    position: relative;
+
+    h1 {
+        color: $text-gray-6;
+        font-family: $secondary-font;
+        margin-left: 5%;
+        margin-bottom: .5em;
+        text-transform: uppercase;
+        font-size: 2em;
+    }
+
+    p {
+        font-family: $secondary-font;
+        font-size: 1.25em;
+        color: $orange;
+        margin-left: 5%;
+    }
+
+    .row {
+        margin-top: 3em;
+        div[class^="col-"] {
+            padding: .5em;
+            div {
+                &:first-child{width: 35%;}
+                &:last-child{width: 65%;}
+                display: table-cell;
+                img {
+                    border-radius: 50%;
+                    width: 100%;
+                }
+
+                h3 {
+                    color: $text-gray-3;
+                    font-family: $primary-font;
+                    text-align: right;
+                    width: 100%;
+                    vertical-align: middle;
+                    font-size: 2em;
+                    small {
+                        color: $text-gray-6;
+                        text-align: right;
+                        font-size: 50%;
+                        display: block;
+                    }
+                }
+
+
+            }
+
+            p {
+                display: block;
+                color: $text-gray-9;
+                font-size: 1em;
+                margin-top: .75em;
             }
         }
     }

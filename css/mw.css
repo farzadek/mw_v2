@@ -19,7 +19,7 @@ body {
 .btn-bl {
   color: #ffffff;
   background-color: #25aae1;
-  font-family: Oswald;
+  font-family: "Oswald";
   border-color: #999999;
 }
 
@@ -56,7 +56,7 @@ body {
   left: 0.5em;
   top: 50%;
   transform: translateY(-50%);
-  font-family: Oswald;
+  font-family: "Oswald";
 }
 .header a img {
   height: 40px;
@@ -113,7 +113,7 @@ body {
 }
 .menu div ul li a {
   color: #333333;
-  font-family: Oswald;
+  font-family: "Oswald";
   font-size: 1.75em;
   text-transform: uppercase;
 }
@@ -151,14 +151,14 @@ body {
   left: 5%;
 }
 .section-1 > div h1 {
-  font-family: Oswald;
+  font-family: "Oswald";
   display: block;
   font-weight: bold;
   font-size: 6em;
   text-shadow: 0 0 2px black;
 }
 .section-1 > div h3 {
-  font-family: Oswald;
+  font-family: "Oswald";
   display: block;
   font-weight: bold;
   font-size: 1.5em;
@@ -209,7 +209,7 @@ body {
   color: #25aae1;
 }
 .section-2 .row div article h2 {
-  font-family: Oswald;
+  font-family: "Oswald";
   color: #25aae1;
   font-size: 1.75em;
 }
@@ -293,6 +293,7 @@ body {
 .section-3 .part1 {
   width: 60%;
   margin: 0 auto 3em;
+  padding-top: 1em;
 }
 .section-3 .part1 h1 {
   color: #666666;
@@ -370,7 +371,7 @@ body {
   margin-bottom: 0.5em;
 }
 .section-3 section .part2 .porifilio-web .all-item-container .items-container .item h3 {
-  font-family: Oswald;
+  font-family: "Oswald";
   text-transform: uppercase;
   margin-bottom: 0.5em;
   display: block;
@@ -598,6 +599,66 @@ body {
     bottom: 0;
   }
 }
+.section-5 {
+  width: 100%;
+  display: block;
+  margin-top: 6em;
+  position: relative;
+}
+.section-5 h1 {
+  color: #666666;
+  font-family: "Playfair Display";
+  margin-left: 5%;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  font-size: 2em;
+}
+.section-5 p {
+  font-family: "Playfair Display";
+  font-size: 1.25em;
+  color: #f7941e;
+  margin-left: 5%;
+}
+.section-5 .row {
+  margin-top: 3em;
+}
+.section-5 .row div[class^=col-] {
+  padding: 0.5em;
+}
+.section-5 .row div[class^=col-] div {
+  display: table-cell;
+}
+.section-5 .row div[class^=col-] div:first-child {
+  width: 35%;
+}
+.section-5 .row div[class^=col-] div:last-child {
+  width: 65%;
+}
+.section-5 .row div[class^=col-] div img {
+  border-radius: 50%;
+  width: 100%;
+}
+.section-5 .row div[class^=col-] div h3 {
+  color: #333333;
+  font-family: "Oswald";
+  text-align: right;
+  width: 100%;
+  vertical-align: middle;
+  font-size: 2em;
+}
+.section-5 .row div[class^=col-] div h3 small {
+  color: #666666;
+  text-align: right;
+  font-size: 50%;
+  display: block;
+}
+.section-5 .row div[class^=col-] p {
+  display: block;
+  color: #999999;
+  font-size: 1em;
+  margin-top: 0.75em;
+}
+
 footer {
   width: 100%;
   height: 200px;

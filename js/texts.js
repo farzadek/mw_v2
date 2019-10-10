@@ -43,6 +43,16 @@ const texts = {
             "photography":"Photography",
             "gr_design":"Graphic design",
             "we_are_expert_in_web_text":"After years of education in IT, Computer application programming, Web technology and Infographie, and more than 10 years of experiences in big, medium or small size projects, now we can say that we are expert in some areas in web and IT."
+        },
+        "sec5": {
+            "meet_the_team":"RENCONTRER L'ÉQUIPE",
+            "we_are_expert_in_what_we_do":"Nous sommes experts dans ce que nous faisons!",
+            "programmer_developer":"Programmeur / Développeur",
+            "farzad_text":"Développeur Web expérimenté et bien éduqué. Il a étudié en \"Programmation d'applications informatiques\", \"Technologie Web\" et \"Infographie\" et possède également plus de 6 années d'expérience dans le domaine du Web, de la programmation et de la conception.",
+            "sales_manager_accountant":"Directrice des ventes et Comptable",
+            "lili_text":"Directrice commercial et directrice financier. Elle a étudié en \"Économie théorique\" et en \"Comptabilité\". Elle a plus de 5 ans d'expérience en tant que responsable des ventes et 2 ans en tant que technicienne en comptabilité.",
+            "motivators":"Motivatrices",
+            "motivators_text":"Céline, a 4 ans et Caroline, a moin d\'un an. Ils sont experts dans leur rôle de motivateur de la vie."
         }
     },
     "fr":{
@@ -89,18 +99,20 @@ const texts = {
             "photography":"La photographie",
             "gr_design":"Conception graphique",
             "we_are_expert_in_web_text":"Après des années de formation en informatique, en programmation d'applications, en technologie Web et en infographie, et plus de 10 ans d'expérience dans des projets de grande, moyenne ou petite taille, nous pouvons maintenant affirmer que nous sommes des experts dans certains domaines du web et de l'informatique."
+        },
+        "sec5": {
+            "meet_the_team":"MEET THE TEAM",
+            "we_are_expert_in_what_we_do":"We Are Expert In What we do!",
+            "programmer_developer":"Programmer / Developer",
+            "farzad_text":"A educated and experienced, web developer/designer. He educated in \"Computer Application Programming\", \"Web Technology\" and \"Infographie\" and also has more than 6 years experiences in the field of Web, Programming and Design.",
+            "sales_manager_accountant":"Sales manager & Accountant",
+            "lili_text":"A perfect sales manager and Financial manager. She educated in \"Theoretical Economy\" and \"Accounting\". She has more than 5 years of experiences as Sales Manager and 2 years as Accounting Technician.",
+            "motivators":"Motivators",
+            "motivators_text":"Céline, is 4 years old and Caroline, is less than a year. They are expert in their role as Life Motivator."
         }
     }
 };
 /*
-$texts['meet_the_team'] = ['MEET THE TEAM', 'RENCONTRER L\'ÉQUIPE'];
-$texts['we_are_expert_in_what_we_do'] = ['We Are Expert In What we do!', 'Nous sommes experts dans ce que nous faisons!'];
-$texts['programmer_developer'] = ['Programmer / Developer', 'Programmeur / Développeur'];
-$texts['farzad_text'] = ['A educated and experienced, web developer/designer. He educated in "Computer Application Programming", "Web Technology" and "Infographie" and also has more than 5 years experiences in the field of Web, Programming and Design.', 'Développeur Web expérimenté et bien éduqué. Il a étudié en "Programmation d\'applications informatiques", "Technologie Web" et "Infographie" et possède également plus de 5 années d\'expérience dans le domaine du Web, de la programmation et de la conception.'];
-$texts['sales_manager_accountant'] = ['Sales manager & Accountant', 'Directrice des ventes et Comptable'];
-$texts['lili_text'] = ['A perfect sales manager and Financial manager. She educated in "Theoretical Economy" and "Accounting". She has more than 5 years of experiences as Sales Manager and 2 years as Accounting Technician.', 'Directrice commercial et directrice financier. Elle a étudié en "Économie théorique" et en "Comptabilité". Elle a plus de 5 ans d\'expérience en tant que responsable des ventes et 2 ans en tant que technicienne en comptabilité.'];
-$texts['motivators'] = ['Motivators', 'Motivatrices'];
-$texts['motivators_text'] = ['Céline, is 3 years old and Caroline, is less than a year. They are expert in their role as Life Motivator.', 'Céline, a 3 ans et Caroline, a moin d\'un an. Ils sont experts dans leur rôle de motivateur de la vie.'];
 $texts['get_in_touch'] = ['GET IN TOUCH', 'ENTRER EN CONTACT'];
 $texts['contact_us'] = ['Contact Us', 'Contactez nous'];
 $texts['name'] = ['Name', 'Nom complet'];
