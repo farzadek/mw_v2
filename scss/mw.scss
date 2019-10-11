@@ -4,7 +4,7 @@ $text-gray-9: #999999;
 $orange: #f7941e;
 $light-blue: #25aae1;
 $primary-font: 'Oswald';
-$secondary-font:'Playfair Display';
+$secondary-font: 'Playfair Display';
 @font-face {
     font-family: icomoon;
     src: url('../fonts/icomoon/fonts/icomoon.svg');
@@ -39,6 +39,7 @@ body {
     cursor: pointer;
     font-size: .9em;
     font-weight: bold;
+
     &:hover {
         opacity: .7;
     }
@@ -71,6 +72,7 @@ body {
     font-size: 2.25em;
     width: 100%;
     z-index: 10000;
+
     a {
         display: inline-block;
         box-sizing: border-box;
@@ -82,12 +84,14 @@ body {
         top: 50%;
         transform: translateY(-50%);
         font-family: $primary-font;
+
         img {
             height: 40px;
             margin-right: 4px;
             margin-top: -5px;
         }
     }
+
     i {
         margin-right: .5em;
         position: absolute;
@@ -107,11 +111,13 @@ body {
     width: 100%;
     display: none;
     z-index: 1000;
+
     &.open {
         animation: menu-open .5s ease;
         animation-fill-mode: forwards;
         display: block;
     }
+
     div {
         ul {
             background-color: white;
@@ -121,12 +127,15 @@ body {
             padding-bottom: 1em;
             box-shadow: -2px 2px 5px 1px #aaa;
             border-bottom-left-radius: 10px;
+
             li {
                 list-style-type: none;
                 margin-top: .6em;
+
                 &:first-child {
                     margin-bottom: 4em;
                 }
+
                 i {
                     font-size: 3em;
                     font-weight: bold;
@@ -135,11 +144,13 @@ body {
                     display: block;
                     cursor: pointer;
                 }
+
                 a {
                     color: $text-gray-3;
                     font-family: $primary-font;
                     font-size: 1.75em;
                     text-transform: uppercase;
+
                     img {
                         margin: -4px 4px 0 0;
                     }
@@ -167,6 +178,7 @@ body {
     height: calc(100vh - 60px);
     margin-top: 60px;
     position: relative;
+
     .cover {
         position: absolute;
         top: 0;
@@ -175,11 +187,13 @@ body {
         height: 100%;
         background-color: rgba(0, 0, 0, .6);
     }
-    &>div {
+
+    & > div {
         position: absolute;
         top: 30%;
         color: white;
         left: 5%;
+
         h1 {
             font-family: $primary-font;
             display: block;
@@ -187,6 +201,7 @@ body {
             font-size: 6em;
             text-shadow: 0 0 2px black;
         }
+
         h3 {
             font-family: $primary-font;
             display: block;
@@ -196,6 +211,7 @@ body {
             line-height: 1;
             text-shadow: 0 0 1px black;
         }
+
         a {
             font-size: 1.25em;
         }
@@ -204,11 +220,13 @@ body {
 
 @media screen and (max-width: 576px) {
     .section-1 {
-        &>div {
+        & > div {
             top: 25%;
+
             h1 {
                 font-size: 3.25em;
             }
+
             h3 {
                 font-size: .75em;
                 width: 90%;
@@ -225,6 +243,7 @@ body {
     display: block;
     margin-top: 6em;
     position: relative;
+
     h1 {
         color: $text-gray-6;
         font-family: $secondary-font;
@@ -233,25 +252,31 @@ body {
         text-transform: uppercase;
         font-size: 2em;
     }
+
     .row {
         div {
             margin-bottom: 1em;
+
             article {
                 height: 12em;
                 padding: .75em;
                 background-color: white;
                 overflow: hidden;
+
                 span {
                     color: $light-blue;
                 }
+
                 h2 {
                     font-family: $primary-font;
                     color: $light-blue;
                     font-size: 1.75em;
+
                     small {
                         font-size: 50%;
                     }
                 }
+
                 p {
                     font-family: $secondary-font;
                     color: $text-gray-3;
@@ -259,6 +284,7 @@ body {
                     text-overflow: ellipsis;
                 }
             }
+
             &:nth-child(3n+3) {
                 article {
                     margin-right: 0;
@@ -271,12 +297,14 @@ body {
 @media screen and (max-width: 768px) {
     .section-2 {
         margin-top: 5em;
+
         .row {
             div {
                 article {
                     h2 {
                         font-size: 1.4em;
                     }
+
                     p {
                         font-size: .75em;
                     }
@@ -289,18 +317,23 @@ body {
 @media screen and (max-width: 576px) {
     .section-2 {
         margin-top: 4em;
+
         .row {
             div {
                 margin-bottom: 1em;
+
                 article {
                     height: 11em;
+
                     h2 {
                         font-size: 1.25em;
                     }
+
                     p {
                         font-size: .7em;
                     }
                 }
+
                 &:nth-child(3n+3) {
                     article {
                         margin-right: 0;
@@ -319,6 +352,7 @@ body {
                     h2 {
                         font-size: 1em;
                     }
+
                     p {
                         font-size: .65em;
                     }
@@ -338,24 +372,29 @@ body {
     position: relative;
     background-color: white;
     font-family: $secondary-font;
+
     hr {
         width: 60%;
     }
+
     .view-more-btn {
         margin-top: 1em;
         font-size: .9em;
         margin-left: calc(80% - 150px);
     }
+
     .part1 {
         width: 60%;
         margin: 0 auto 3em;
         padding-top: 1em;
+
         h1 {
             color: $text-gray-6;
             font-family: $secondary-font;
             text-transform: uppercase;
             font-size: 2em;
         }
+
         p {
             color: $text-gray-9;
             font-family: $secondary-font;
@@ -366,9 +405,11 @@ body {
             text-align: center;
         }
     }
+
     section {
         .part2 {
             margin-top: 3em;
+
             h1 {
                 color: $text-gray-6;
                 font-family: $secondary-font;
@@ -377,10 +418,12 @@ body {
                 text-transform: uppercase;
                 font-size: 2em;
             }
+
             .porifilio-web {
                 width: 100%;
                 margin: 0 auto;
                 position: relative;
+
                 span[class^="icon-"] {
                     color: $orange;
                     font-size: 2.5em;
@@ -388,13 +431,16 @@ body {
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
+
                     &:first-child {
                         left: 4%;
                     }
+
                     &:last-child {
                         right: 4%;
                     }
                 }
+
                 .all-item-container {
                     height: 300px;
                     width: 80%;
@@ -402,26 +448,31 @@ body {
                     position: relative;
                     overflow: hidden;
                     margin-top: 2em;
+
                     h2 {
                         color: $orange;
                         font-weight: bold;
                     }
+
                     .items-container {
                         width: auto;
                         display: flex;
                         position: absolute;
                         left: 0;
+
                         .item {
                             width: 300px;
                             margin-right: 1em;
                             background-color: #f1f1f1;
                             box-sizing: content-box;
                             padding: .75em;
+
                             img {
                                 width: 100%;
                                 display: block;
                                 margin-bottom: .5em;
                             }
+
                             h3 {
                                 font-family: $primary-font;
                                 text-transform: uppercase;
@@ -429,6 +480,7 @@ body {
                                 display: block;
                                 width: 100%;
                             }
+
                             span {
                                 font-family: $secondary-font;
                                 font-style: italic;
@@ -445,12 +497,15 @@ body {
                 }
             }
         }
+
         .part3 {
             margin-top: 3em;
+
             .porifilio-web {
                 width: 100%;
                 margin: 0 auto;
                 position: relative;
+
                 span[class^="icon-"] {
                     color: $orange;
                     font-size: 2.5em;
@@ -458,13 +513,16 @@ body {
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
+
                     &:first-child {
                         left: 4%;
                     }
+
                     &:last-child {
                         right: 4%;
                     }
                 }
+
                 .all-item-container {
                     height: 300px;
                     width: 80%;
@@ -472,22 +530,26 @@ body {
                     position: relative;
                     overflow: hidden;
                     margin-top: 2em;
+
                     h2 {
                         color: $orange;
                         font-weight: bold;
                         text-transform: uppercase;
                     }
+
                     .items-container {
                         width: auto;
                         display: flex;
                         position: absolute;
                         left: 0;
+
                         .item {
                             height: 300px;
                             margin-right: 1em;
                             background-color: #f1f1f1;
                             box-sizing: content-box;
                             padding: .75em;
+
                             img {
                                 height: 100%;
                                 max-height: calc(100% - 4.25em);
@@ -498,12 +560,15 @@ body {
                 }
             }
         }
+
         .part4 {
             margin-top: 3em;
+
             .porifilio-web {
                 width: 100%;
                 margin: 0 auto;
                 position: relative;
+
                 span[class^="icon-"] {
                     color: $orange;
                     font-size: 2.5em;
@@ -511,13 +576,16 @@ body {
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
+
                     &:first-child {
                         left: 4%;
                     }
+
                     &:last-child {
                         right: 4%;
                     }
                 }
+
                 .all-item-container {
                     height: 300px;
                     width: 80%;
@@ -525,16 +593,19 @@ body {
                     position: relative;
                     overflow: hidden;
                     margin-top: 2em;
+
                     h2 {
                         color: $orange;
                         font-weight: bold;
                         text-transform: uppercase;
                     }
+
                     .items-container {
                         width: auto;
                         display: flex;
                         position: absolute;
                         left: 0;
+
                         .item {
                             height: 300px;
                             width: 300px;
@@ -543,6 +614,7 @@ body {
                             box-sizing: content-box;
                             padding: .75em;
                             overflow: hidden;
+
                             img {
                                 width: 100%;
                                 display: block;
@@ -552,12 +624,15 @@ body {
                 }
             }
         }
+
         .part5 {
             margin-top: 3em;
+
             .porifilio-web {
                 width: 100%;
                 margin: 0 auto;
                 position: relative;
+
                 span[class^="icon-"] {
                     color: $orange;
                     font-size: 2.5em;
@@ -565,13 +640,16 @@ body {
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
+
                     &:first-child {
                         left: 4%;
                     }
+
                     &:last-child {
                         right: 4%;
                     }
                 }
+
                 .all-item-container {
                     height: 300px;
                     width: 80%;
@@ -579,22 +657,26 @@ body {
                     position: relative;
                     overflow: hidden;
                     margin-top: 2em;
+
                     h2 {
                         color: $orange;
                         font-weight: bold;
                         text-transform: uppercase;
                     }
+
                     .items-container {
                         width: auto;
                         display: flex;
                         position: absolute;
                         left: 0;
+
                         .item {
                             height: 300px;
                             margin-right: 1em;
                             background-color: #f1f1f1;
                             box-sizing: content-box;
                             padding: .75em;
+
                             img {
                                 height: 100%;
                                 max-height: calc(100% - 4.25em);
@@ -617,8 +699,10 @@ body {
     margin-top: 6em;
     position: relative;
     font-family: $secondary-font;
+
     div {
         position: relative;
+
         img {
             height: 100%;
             position: absolute;
@@ -627,6 +711,7 @@ body {
             transform: translateY(-50%);
             display: block;
         }
+
         h1 {
             color: $text-gray-6;
             margin-left: calc(5% + 1.5em);
@@ -634,11 +719,13 @@ body {
             text-transform: uppercase;
             font-size: 2em;
         }
+
         p {
             color: $orange;
             font-size: 1.25em;
             margin-left: 1.5em;
         }
+
         li {
             margin-bottom: .5em;
             list-style-type: none;
@@ -651,9 +738,11 @@ body {
 @media screen and (max-width: 576px) {
     .section-4 {
         margin-top: 4em;
+
         div {
             min-height: 250px;
             overflow: hidden;
+
             img {
                 width: 100%;
                 bottom: 0;
@@ -670,6 +759,7 @@ body {
     display: block;
     margin-top: 6em;
     position: relative;
+
     h1 {
         color: $text-gray-6;
         font-family: $secondary-font;
@@ -678,31 +768,39 @@ body {
         text-transform: uppercase;
         font-size: 2em;
     }
+
     p {
         font-family: $secondary-font;
         font-size: 1.25em;
         color: $orange;
         margin-left: 5%;
     }
+
     .row {
         margin: 3em 0 0 0;
+
         div[class^="col-"] {
             padding: .5em;
+
             div {
                 &:first-child {
                     width: 35%;
                     padding-left: 5%;
                 }
+
                 &:last-child {
                     width: 65%;
                     padding-right: 5%;
                 }
+
                 display: table-cell;
+
                 img {
                     border-radius: 50%;
                     width: 100%;
                     margin-left: 5%;
                 }
+
                 h3 {
                     color: $text-gray-3;
                     font-family: $primary-font;
@@ -710,6 +808,7 @@ body {
                     width: 100%;
                     vertical-align: middle;
                     font-size: 2em;
+
                     small {
                         color: $text-gray-6;
                         text-align: right;
@@ -718,6 +817,7 @@ body {
                     }
                 }
             }
+
             p {
                 display: block;
                 color: $text-gray-9;
@@ -738,6 +838,7 @@ body {
     position: relative;
     background-color: white;
     padding-top: 1em;
+
     h1 {
         color: $text-gray-6;
         font-family: $secondary-font;
@@ -746,13 +847,16 @@ body {
         text-transform: uppercase;
         font-size: 2em;
     }
+
     p {
         font-family: $secondary-font;
         font-size: 1.25em;
         color: $orange;
         margin-left: 5%;
     }
+
     div {
+        padding: .5em 1em;
         img {
             width: 270px;
             margin: 0 10px 10px 0;
@@ -769,6 +873,7 @@ body {
     margin-top: 6em;
     position: relative;
     padding-top: 1em;
+
     h1 {
         color: $text-gray-6;
         font-family: $secondary-font;
@@ -777,11 +882,13 @@ body {
         text-transform: uppercase;
         font-size: 2em;
     }
+
     form {
         width: 80%;
         display: block;
         margin: 1em auto;
-        font-size: 2em;
+        font-size: 1.75em;
+
         div {
             label {
                 color: $text-gray-9;
@@ -789,6 +896,7 @@ body {
                 font-family: $primary-font;
                 margin: 1em 0 0 1.5em;
             }
+
             input,
             textarea {
                 width: 100%;
@@ -800,7 +908,20 @@ body {
                 border-top-right-radius: 8px;
                 border: 0;
                 padding: 0 .5em 5px;
+                background-color: white;
+
+                &:hover {
+                    background-color: rgba(37, 170, 225, 0.05);
+                    color: $text-gray-3;
+                }
+
+                &:focus {
+                    background-color: rgba(37, 170, 225, 0.05);
+                    color: $text-gray-3;
+                    font-size: 1.2em;
+                }
             }
+
             p {
                 color: $orange;
                 margin-left: 2em;
@@ -808,6 +929,7 @@ body {
                 min-height: 1.5em;
             }
         }
+
         .view-more-btn {
             font-size: .75em;
             margin: 1em 0;
@@ -823,15 +945,19 @@ footer {
     width: 100%;
     background-color: $text-gray-3;
     padding: 4em 1em 3em;
+
     ul {
         display: table;
         margin: 1em auto;
+
         li {
             display: inline;
             margin-right: 1em;
+
             &:last-child {
                 margin-right: 0;
             }
+
             a {
                 font-family: $primary-font;
                 font-weight: 300;
@@ -841,23 +967,28 @@ footer {
                 padding: 5px;
                 text-transform: capitalize;
                 cursor: pointer;
+
                 &:hover {
                     color: $light-blue;
                 }
             }
         }
     }
+
     p {
         color: white;
         text-align: center;
     }
+
     div {
         text-align: center;
+
         a {
             color: white;
             font-size: 2em;
             padding: .5em;
             text-decoration: none;
+
             &:hover {
                 color: $light-blue;
             }

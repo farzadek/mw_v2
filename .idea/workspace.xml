@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="226141b0-39e8-4712-ae54-3ab3637c5ea9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/section5.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/mw.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/mw.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/mw.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/mw.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/texts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/texts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/section1.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/section1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/section2.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/section2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/section3.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/section3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/section4.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/section4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/section5.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/section5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/section6.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/section6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/section7.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/section7.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scss/mw.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/mw.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -92,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570645321572</updated>
-      <workItem from="1570645322833" duration="41171000" />
+      <workItem from="1570645322833" duration="43004000" />
     </task>
     <servers />
   </component>
