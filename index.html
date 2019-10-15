@@ -9,25 +9,51 @@
 
     <meta name="og:title" property="og:title" content="A reasonable price for a perfect website. We are specialist in making beautiful websites and professional graphic design.">
     <meta name="robots" content="index, follow">
-
+    <script>
+        window.addEventListener("load", function() {
+            document.getElementsByClassName('container')[0].style.display = 'block';
+            document.getElementsByClassName('lds-dual-ring')[0].style.display = 'none';
+        });
+    </script>
     <script src="js/jquery341.js"></script>
     <link rel="shortcut icon" href="images/logo.ico" />
     <link rel="apple-touch-icon" href="images/logo.ico" />
-    <script src="js/angular178.js"></script>
-    <script src="js/angular178_route.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Playfair+Display:400,400i,700|Material+Icons&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/bootstrap431.css">
-    <script src="js/texts.js"></script>
-    <script src="js/mw.js"></script>
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="css/mw.css">
     <title>Title</title>
 </head>
 
 <body ng-app="mwApp" ng-controller="mwCtrl">
-
-    <div class="container">
+    <style>
+        .lds-dual-ring {
+            display: inline-block;
+            width: 128px;
+            height: 128px;
+            margin: 10% auto 0;
+            display: block;
+        }
+        
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 92px;
+            height: 92px;
+            margin: 1px;
+            border-radius: 50%;
+            border: 7px solid #f7941e;
+            border-color: #f7941e transparent #25aae1 transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+        }
+        
+        @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <div class="lds-dual-ring"></div>
+    <div class="container" style="display: none">
         <section class="header container">
             <a href="#"><img src="images/logo.png">MontrealWEB</a>
             <i class="material-icons" ng-click="openMenu()">menu</i>
@@ -68,6 +94,34 @@
                 </script> All rights reserved</p>
         </footer>
     </div>
+
+    <div class="modal fade" id="prevModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div id="jsModalBody" class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/angular178.js"></script>
+    <script src="js/angular178_route.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700|Playfair+Display:400,400i,700|Material+Icons&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap431.css">
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap431.js"></script>
+    <script src="js/texts.js"></script>
+    <script src="js/mw.js"></script>
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/mw.css">
 </body>
 
 </html>

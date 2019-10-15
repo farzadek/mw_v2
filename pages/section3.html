@@ -8,39 +8,20 @@
         <div class="part2">
             <h1>{{text.sec3.portfolio}}</h1>
             <div class="porifilio-web row">
-                <span class="icon-arrow-circle-left"></span>
+                <span class="icon-arrow-circle-left" ng-click="nextPreview('web')"></span>
 
-                <div class="all-item-container">
+                <div id="web-container" class="all-item-container">
                     <h2>WEB</h2>
-                    <div class="items-container" id="web">
-                        <div class="item">
-                            <img src="images/portfolio/web/1-creative-agency$HTML5_CSS3_Javascript_jQuery_PHP_MySQL_LESS_Sketch_Photoshop_Photography.png">
-                            <h3>title</h3>
-                            <span>html</span><span>css</span><span>javascript</span><span>bootstrap</span><span>html</span><span>css</span><span>javascript</span><span>bootstrap</span>
-                        </div>
-                        <div class="item">
-                            <img src="images/portfolio/web/1-creative-agency$HTML5_CSS3_Javascript_jQuery_PHP_MySQL_LESS_Sketch_Photoshop_Photography.png">
-                            <h3>title</h3>
-                            <span>html</span><span>css</span><span>javascript</span><span>bootstrap</span>
-                        </div>
-                        <div class="item">
-                            <img src="images/portfolio/web/1-creative-agency$HTML5_CSS3_Javascript_jQuery_PHP_MySQL_LESS_Sketch_Photoshop_Photography.png">
-                            <h3>title</h3>
-                            <span>html</span><span>css</span><span>javascript</span><span>bootstrap</span>
-                        </div>
-                        <div class="item">
-                            <img src="images/portfolio/web/1-creative-agency$HTML5_CSS3_Javascript_jQuery_PHP_MySQL_LESS_Sketch_Photoshop_Photography.png">
-                            <h3>title</h3>
-                            <span>html</span><span>css</span><span>javascript</span><span>bootstrap</span>
-                        </div>
-                        <div class="item">
-                            <img src="images/portfolio/web/1-creative-agency$HTML5_CSS3_Javascript_jQuery_PHP_MySQL_LESS_Sketch_Photoshop_Photography.png">
-                            <h3>title</h3>
-                            <span>html</span><span>css</span><span>javascript</span><span>bootstrap</span>
+                    <div class="items-container" id="web" style="transition: all 1s">
+                        <div class="item" ng-repeat="web in previewWebFolio | limitTo:5">
+                            <img ng-src="images/portfolio/web/{{web.url}}">
+                            <h3>{{web.title}}</h3>
+                            <span ng-repeat="tag in web.tags">{{tag.tag}}</span>
+                            <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('web',web)">zoom_in</i>
                         </div>
                     </div>
                 </div>
-                <span class="icon-arrow-circle-right"></span>
+                <span class="icon-arrow-circle-right" ng-click="prevPreview('web')"></span>
             </div>
         </div>
         <a class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a>
