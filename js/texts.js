@@ -64,6 +64,9 @@ const texts = {
             "phone": "Phone",
             "send_message": "Send Message",
             "err_msg": "This box could not be empty"
+        },
+        "portfolio": {
+            "back_to_homepage": "Back to Home page"
         }
     },
     "fr": {
@@ -131,6 +134,9 @@ const texts = {
             "phone": "Téléphone",
             "send_message": "Envoyer le message",
             "err_msg": "Cette case ne peut pas être vide"
+        },
+        "portfolio": {
+            "back_to_homepage": "Retour à la page d'accueil"
         }
     }
 };

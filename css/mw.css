@@ -253,7 +253,7 @@ body {
   .section-3 .part1 {
     width: 60%;
     margin: 0 auto 3em;
-    padding-top: 1em; }
+    padding-top: 2em; }
     .section-3 .part1 h1 {
       color: #666666;
       font-family: "Playfair Display";
@@ -642,6 +642,25 @@ body {
       font-size: .75em;
       margin: 1em 0;
       padding-bottom: 12px; }
+
+.section-portfolio {
+  margin-top: 6em;
+  position: relative; }
+  .section-portfolio > a {
+    background-color: white;
+    color: #f7941e;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: 1em 5px 3px;
+    border-top-left-radius: .5em;
+    border-top-right-radius: .5em; }
+  .section-portfolio .row > div {
+    margin-bottom: 1em; }
+    .section-portfolio .row > div img {
+      width: 100%; }
 
 footer {
   width: 100%;
