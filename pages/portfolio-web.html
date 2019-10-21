@@ -1,7 +1,7 @@
-<section class="section-portfolio-graphic">
+<section class="section-portfolio" id="portfolio-page">
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-4" ng-repeat="item in previewFullFolio">
-            <img ng-src="{{item.url}}" data-toggle="modal" data-target="#prevModal" ng-click="showItem('graphic',item)">
+            <img ng-src="{{item.url}}" data-toggle="modal" data-target="#prevModal" ng-click="showItem('web',item)">
         </div>
     </div>
     <button ng-show="showedItem < previewFullFolioCount" ng-click="showMorePorfolio()" class="btn view-more-btn"><span class="icon-add_to_queue"></span> {{text.portfolio.more}}</button>

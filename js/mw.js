@@ -4,6 +4,9 @@ app.config(function($routeProvider) {
         .when("/", {
             templateUrl: "pages/home.html"
         })
+        .when("/portfolio-web", {
+            templateUrl: "pages/portfolio-web.html"
+        })
         .when("/portfolio", {
             templateUrl: "pages/portfolio.html"
         })
@@ -12,7 +15,7 @@ app.config(function($routeProvider) {
         })
 });
 
-app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http) {
+app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $rootScope) {
     $scope.MenuIsOpen = false;
     $scope.$lang = true;
     $scope.text = $scope.$lang ? texts.en : texts.fr;
@@ -21,6 +24,7 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http) {
     $scope.previewUiFolio = '';
     $scope.previewEmailFolio = '';
     $scope.previewFullFolio = '';
+    $scope.previewFullFolioCount = 0;
     $scope.webPrevPosition = 0;
     $scope.GraphicPrevPosition = 0;
     $scope.uiPrevPosition = 0;
@@ -99,25 +103,46 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http) {
         document.getElementById(prevName).style.left = $scope.webPrevPosition + 'px';
     }
 
+    $scope.imageToView = '';
     $scope.showItem = function(type, item) {
+        if (document.getElementById("previewObject")) {
+            document.getElementById("previewObject").remove();
+        }
         if (type == 'web') {
-            if (document.getElementById("previewObject")) {
-                document.getElementById("previewObject").remove();
-            }
             sourceToShow = 'portfolio/web/' + item.title + '/';
             let node = document.createElement("object");
             node.setAttribute("type", "text/html");
             node.setAttribute("data", sourceToShow);
             node.setAttribute("id", "previewObject");
             parent.appendChild(node);
+        } else {
+            $scope.imageToView = item.url;
         }
     }
 
-    $scope.showFullFolio = function(type) {
+    $scope.itemPerRow = 1;
+    $scope.allPreviewFolio = '';
+    $scope.loadAllPortfolio = function(type) {
         $http.get("php/get_file_list.php?type=" + type)
             .then(function(response) {
-                console.log(response.data);
-                $scope.previewFullFolio = response.data;
+                $scope.previewFullFolioCount = response.data.length;
+                var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+                var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+                if (w > 768) {
+                    $scope.itemPerRow = 3;
+                }
+                if (w < 768 && w > 576) {
+                    $Scope.itemPerRow = 2;
+                }
+                $scope.showedItem = Math.ceil(h / 380) * $scope.itemPerRow;
+                $scope.allPreviewFolio = response.data;
+                $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
             });
     }
+
+    $scope.showMorePorfolio = function() {
+        $scope.showedItem += $scope.itemPerRow;
+        $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
+    }
+
 });

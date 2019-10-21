@@ -66,7 +66,8 @@ const texts = {
             "err_msg": "This box could not be empty"
         },
         "portfolio": {
-            "back_to_homepage": "Back to Home page"
+            "back_to_homepage": "Back to Home page",
+            "more": "Show More..."
         }
     },
     "fr": {
@@ -136,7 +137,8 @@ const texts = {
             "err_msg": "Cette case ne peut pas être vide"
         },
         "portfolio": {
-            "back_to_homepage": "Retour à la page d'accueil"
+            "back_to_homepage": "Retour à la page d'accueil",
+            "more": "Montre Plus..."
         }
     }
 };

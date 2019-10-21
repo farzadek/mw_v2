@@ -16,7 +16,7 @@ switch ($type){
             $s = explode('$',$files[$i])[1];
             $s = substr($s,0,-4);
             $s = explode('_',$s);
-            $result .= '{"url":"images/portfolio/web/'.$files[$i].'"}';
+            $result .= '{"url":"images/portfolio/web/'.$files[$i].'","title":"'.explode("$",$files[$i])[0].'"}';
             if($i<sizeof($files)-1){
                 $result .= ',';
             }
@@ -31,7 +31,7 @@ switch ($type){
         $i = 0;
         $result = '[';
         while($i<sizeof($files)){
-            $result .= '{"url":"'.$files[$i].'"}';
+            $result .= '{"url":"images/portfolio/graphic/'.$files[$i].'"}';
             if($i<sizeof($files)-1){
                 $result .= ',';
             }            
