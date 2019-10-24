@@ -983,9 +983,9 @@ body {
     &>a {
         background-color: white;
         color: $light-blue;
-        position: absolute;
+        position: fixed;
         bottom: 0;
-        right: 0;
+        right: calc(50% - 15px);
         display: inline-block;
         padding: 8px 8px 5px;
         border-top-left-radius: .5em;
