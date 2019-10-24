@@ -1,5 +1,5 @@
 const app = angular.module("mwApp", ["ngRoute"]);
-app.config(function($routeProvider) {
+app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "pages/home.html"
@@ -15,7 +15,7 @@ app.config(function($routeProvider) {
         })
 });
 
-app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $rootScope) {
+app.controller('mwCtrl', function ($scope, $location, $anchorScroll, $http) {
     $scope.MenuIsOpen = false;
     $scope.$lang = true;
     $scope.text = $scope.$lang ? texts.en : texts.fr;
@@ -28,40 +28,48 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $root
     $scope.webPrevPosition = 0;
     $scope.GraphicPrevPosition = 0;
     $scope.uiPrevPosition = 0;
+    $scope.instaPosts = '';
     const parent = document.getElementById("jsModalBody");
     let sourceToShow = '';
 
-    $scope.scrollTo = function(id) {
+    $scope.scrollTo = function (id) {
         $location.hash(id);
         $anchorScroll();
     }
 
-    $scope.openMenu = function() {
+    $scope.openMenu = function () {
         $scope.MenuIsOpen = !$scope.MenuIsOpen;
     }
 
-    $scope.changeLang = function() {
+    $scope.changeLang = function () {
         $scope.$lang = $scope.$lang ? false : true;
         $scope.text = $scope.$lang ? texts.en : texts.fr;
     }
 
     $http.get("php/get_limit_file_list.php?type=web")
-        .then(function(response) {
+        .then(function (response) {
             $scope.previewWebFolio = response.data;
         });
     $http.get("php/get_limit_file_list.php?type=graphic")
-        .then(function(response) {
+        .then(function (response) {
             $scope.previewGraphicFolio = response.data;
         });
     $http.get("php/get_limit_file_list.php?type=ui")
-        .then(function(response) {
+        .then(function (response) {
             $scope.previewUiFolio = response.data;
         });
     $http.get("php/get_limit_file_list.php?type=email")
-        .then(function(response) {
+        .then(function (response) {
             $scope.previewEmailFolio = response.data;
         });
-    $scope.nextPreview = function(prevName) {
+    $http({
+        method: "GET",
+        url: "https://api.instagram.com/v1/users/self/media/recent",
+        params: { access_token: "3648306560.1c1827a.4a2783080b7646dcac204724ad4a63fc" }
+    }).then(function (response) { console.log(response.data.data);
+        $scope.instaPosts = response.data.data;
+        });
+    $scope.nextPreview = function (prevName) {
         switch (prevName) {
             case 'web':
                 if ($scope.webPrevPosition > -3 * 312) {
@@ -82,7 +90,7 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $root
         document.getElementById(prevName).style.left = $scope.webPrevPosition + 'px';
     }
 
-    $scope.prevPreview = function(prevName) {
+    $scope.prevPreview = function (prevName) {
         switch (prevName) {
             case 'web':
                 if ($scope.webPrevPosition <= -312) {
@@ -104,7 +112,7 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $root
     }
 
     $scope.imageToView = '';
-    $scope.showItem = function(type, item) {
+    $scope.showItem = function (type, item) {
         if (document.getElementById("previewObject")) {
             document.getElementById("previewObject").remove();
         }
@@ -122,9 +130,9 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $root
 
     $scope.itemPerRow = 1;
     $scope.allPreviewFolio = '';
-    $scope.loadAllPortfolio = function(type) {
+    $scope.loadAllPortfolio = function (type) {
         $http.get("php/get_file_list.php?type=" + type)
-            .then(function(response) {
+            .then(function (response) {
                 $scope.previewFullFolioCount = response.data.length;
                 var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
                 var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -140,7 +148,7 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $root
             });
     }
 
-    $scope.showMorePorfolio = function() {
+    $scope.showMorePorfolio = function () {
         $scope.showedItem += $scope.itemPerRow;
         $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
     }

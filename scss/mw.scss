@@ -816,7 +816,7 @@ body {
     .row {
         div {
             padding: .5em 1em;
-            img {
+            img, video {
                 width: 100%;
                 margin: 0 10px 10px 0;
             }
@@ -841,7 +841,7 @@ body {
 }
 
 //* ========================================================================= */
-//* SECTION-6                                                                 */
+//* SECTION-7                                                                 */
 //* ========================================================================= */
 .section-7 {
     width: 100%;
@@ -899,9 +899,9 @@ body {
             }
         }
         .view-more-btn {
-            font-size: .75em;
+            font-size: .65em;
             margin: 1em 0;
-            padding-bottom: 12px;
+            padding-bottom: 5px;
         }
     }
 }
@@ -935,10 +935,8 @@ body {
                 }
             }
             .view-more-btn {
-                font-size: .65em;
                 margin: 2.5em auto 1.5em;
                 display: block;
-                padding-bottom: 6px;
             }
         }
     }
