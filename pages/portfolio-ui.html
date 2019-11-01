@@ -1,0 +1,13 @@
+<section class="section-portfolio-ui">
+    <div class="row">
+        <div class="categories col-12 col-sm-3" ng-style="{height: {{ui_cat.length*53}}px }">
+            <ul class="ks-cboxtags">
+                <li ng-repeat="cat in ui_cat"><input name="selectedCats[]" ng-click="catSelected(cat)" ng-checked="selectedCats.indexOf(cat) > -1" type="checkbox" id="checkbox{{$index}}" value="{{cat}}"><label for="checkbox{{$index}}">{{cat}}</label></li>
+            </ul>
+        </div>
+        <div class="content-list col-12 col-sm-9" id="ui-container" ng-style="{height: {{ui_container_height}}px }">
+            <div class="cat " ng-repeat="ui in ui_items track by $index " on-finish-render="ngRepeatFinished "><img ng-src="{{ui.url}} "></div>
+        </div>
+    </div>
+    <a ng-href="#!/ "><span class="icon-home "></span></a>
+</section>

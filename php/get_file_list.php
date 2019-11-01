@@ -47,7 +47,7 @@ switch ($type){
         $result = '[';
         while($i<sizeof($files)){ 
             $result .= '{"category":"'. substr_replace(explode(".",$files[$i])[0],"", -2) . '",';
-            $result .= '"url":"'. $files[$i] . '"}';
+            $result .= '"url":"images/portfolio/ui/'. $files[$i] . '"}';
             if($i<sizeof($files)-1){
                 $result .= ',';
             }

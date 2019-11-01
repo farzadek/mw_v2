@@ -2,32 +2,12 @@
     <h1>{{text.sec6.social_network}}</h1>
     <p>{{text.sec6.insta_posts}}</p>
     <div class="row">
-        <div class="col-6 col-sm-4 col-md-3" ng-repeat="item in instaPosts">
-            <img ng-if="item.type=='image'" ng-src="{{item.images.standard_resolution.url}}" alt="instagram post image">
+        <div class="col-6 col-sm-4 col-md-3" ng-repeat="item in instaPosts" ng-if="item.type=='image'">
+            <img ng-src="{{item.images.standard_resolution.url}}" alt="instagram post image">
             <video ng-if="item.type=='video'" controls>
                 <source ng-src="{{item.videos.standard_resolution.url}}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <div ng-if="item.type=='carousel'" id="carouselExampleIndicators{{$index}}" class="carousel slide" data-ride="carousel">
-                <!--<ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>-->
-                <div class="carousel-inner">
-                    <div class="carousel-item active" ng-repeat="elem in item.carousel_media" ng-class="{active:$index==0}">
-                        <img ng-src="{{elem.images.standard_resolution.url}}" class="d-block w-100" alt="">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" ng-href="#carouselExampleIndicators{{$index}}" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" ng-href="#carouselExampleIndicators{{$index}}" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
         </div>
     </div>
 </div>

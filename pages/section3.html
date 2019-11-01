@@ -65,7 +65,7 @@
                 <span class="icon-arrow-circle-right" ng-click="prevPreview('ui')"></span>
             </div>
         </div>
-        <a class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a>
+        <a ng-href="#!portfolio-ui" ng-click="loadAllPortfolio('ui')" class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a>
     </section>
     <hr/>
     <section>
@@ -85,6 +85,6 @@
                 <span class="icon-arrow-circle-right" ng-click="prevPreview('email')"></span>
             </div>
         </div>
-        <a class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a>
+        <a ng-href="#!portfolio" ng-click="loadAllPortfolio('email')" class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a>
     </section>
 </div>

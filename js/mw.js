@@ -1,11 +1,14 @@
 const app = angular.module("mwApp", ["ngRoute"]);
-app.config(function ($routeProvider) {
+app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "pages/home.html"
         })
         .when("/portfolio-web", {
             templateUrl: "pages/portfolio-web.html"
+        })
+        .when("/portfolio-ui", {
+            templateUrl: "pages/portfolio-ui.html"
         })
         .when("/portfolio", {
             templateUrl: "pages/portfolio.html"
@@ -14,8 +17,19 @@ app.config(function ($routeProvider) {
             redirectTo: "/"
         })
 });
-
-app.controller('mwCtrl', function ($scope, $location, $anchorScroll, $http) {
+app.directive('onFinishRender', function($timeout) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attr) {
+            if (scope.$last === true) {
+                $timeout(function() {
+                    scope.$emit('ngRepeatFinished');
+                }, 4000);
+            }
+        }
+    }
+});
+app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $window) {
     $scope.MenuIsOpen = false;
     $scope.$lang = true;
     $scope.text = $scope.$lang ? texts.en : texts.fr;
@@ -32,44 +46,45 @@ app.controller('mwCtrl', function ($scope, $location, $anchorScroll, $http) {
     const parent = document.getElementById("jsModalBody");
     let sourceToShow = '';
 
-    $scope.scrollTo = function (id) {
+    $scope.scrollTo = function(id) {
         $location.hash(id);
         $anchorScroll();
     }
 
-    $scope.openMenu = function () {
+    $scope.openMenu = function() {
         $scope.MenuIsOpen = !$scope.MenuIsOpen;
     }
 
-    $scope.changeLang = function () {
+    $scope.changeLang = function() {
         $scope.$lang = $scope.$lang ? false : true;
         $scope.text = $scope.$lang ? texts.en : texts.fr;
     }
 
     $http.get("php/get_limit_file_list.php?type=web")
-        .then(function (response) {
+        .then(function(response) {
             $scope.previewWebFolio = response.data;
         });
     $http.get("php/get_limit_file_list.php?type=graphic")
-        .then(function (response) {
+        .then(function(response) {
             $scope.previewGraphicFolio = response.data;
         });
     $http.get("php/get_limit_file_list.php?type=ui")
-        .then(function (response) {
+        .then(function(response) {
             $scope.previewUiFolio = response.data;
         });
     $http.get("php/get_limit_file_list.php?type=email")
-        .then(function (response) {
+        .then(function(response) {
             $scope.previewEmailFolio = response.data;
         });
     $http({
         method: "GET",
         url: "https://api.instagram.com/v1/users/self/media/recent",
         params: { access_token: "3648306560.1c1827a.4a2783080b7646dcac204724ad4a63fc" }
-    }).then(function (response) { console.log(response.data.data);
+    }).then(function(response) {
+        //console.log(response.data.data);
         $scope.instaPosts = response.data.data;
-        });
-    $scope.nextPreview = function (prevName) {
+    });
+    $scope.nextPreview = function(prevName) {
         switch (prevName) {
             case 'web':
                 if ($scope.webPrevPosition > -3 * 312) {
@@ -90,19 +105,19 @@ app.controller('mwCtrl', function ($scope, $location, $anchorScroll, $http) {
         document.getElementById(prevName).style.left = $scope.webPrevPosition + 'px';
     }
 
-    $scope.prevPreview = function (prevName) {
+    $scope.prevPreview = function(prevName) {
         switch (prevName) {
             case 'web':
                 if ($scope.webPrevPosition <= -312) {
                     $scope.webPrevPosition += 312;
                 }
                 break;
-            case 'web':
+            case 'graphic':
                 if ($scope.graphicPrevPosition <= -312) {
                     $scope.graphicPrevPosition += 312;
                 }
                 break;
-            case 'web':
+            case 'ui':
                 if ($scope.uiPrevPosition <= -312) {
                     $scope.uiPrevPosition += 312;
                 }
@@ -112,7 +127,7 @@ app.controller('mwCtrl', function ($scope, $location, $anchorScroll, $http) {
     }
 
     $scope.imageToView = '';
-    $scope.showItem = function (type, item) {
+    $scope.showItem = function(type, item) {
         if (document.getElementById("previewObject")) {
             document.getElementById("previewObject").remove();
         }
@@ -127,12 +142,12 @@ app.controller('mwCtrl', function ($scope, $location, $anchorScroll, $http) {
             $scope.imageToView = item.url;
         }
     }
-
+    $scope.ui_container_height = 0;
     $scope.itemPerRow = 1;
     $scope.allPreviewFolio = '';
-    $scope.loadAllPortfolio = function (type) {
+    $scope.loadAllPortfolio = function(type) {
         $http.get("php/get_file_list.php?type=" + type)
-            .then(function (response) {
+            .then(function(response) {
                 $scope.previewFullFolioCount = response.data.length;
                 var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
                 var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -145,12 +160,78 @@ app.controller('mwCtrl', function ($scope, $location, $anchorScroll, $http) {
                 $scope.showedItem = Math.ceil(h / 380) * $scope.itemPerRow;
                 $scope.allPreviewFolio = response.data;
                 $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
+                if (type == 'ui') {
+                    $scope.ui_cat = [];
+                    $scope.allPreviewFolio.forEach(element => {
+                        $scope.ui_cat.push(element.category);
+                    });
+                    const names = $scope.ui_cat;
+
+                    function removeDups(names) {
+                        let unique = {};
+                        names.forEach(function(i) {
+                            if (!unique[i]) {
+                                unique[i] = true;
+                            }
+                        });
+                        return Object.keys(unique);
+                    }
+
+                    $scope.ui_cat = removeDups(names);
+                    $scope.selectedCats = [];
+                    $scope.ui_items = [];
+
+                    for (let i = 0; i < $scope.ui_cat.length; i++) {
+                        let tmp = '';
+                        for (let j = 0; j < $scope.allPreviewFolio.length; j++) {
+                            if ($scope.allPreviewFolio[j].category == $scope.ui_cat[i]) {
+                                tmp = j == $scope.allPreviewFolio.length - 1 ? tmp + $scope.allPreviewFolio[j] + ',' : tmp + $scope.allPreviewFolio[j];
+                            }
+                        }
+                        $scope.ui_items[i] = tmp;
+                    }
+                    $scope.selectedCats.push($scope.ui_cat[Math.ceil(Math.random() * ($scope.ui_cat.length - 1))]);
+                    $scope.ui_items = [];
+                    $scope.allPreviewFolio.forEach(
+                        function(element) {
+                            if ($scope.selectedCats.indexOf(element.category) > -1) {
+                                $scope.ui_items.push(element);
+                            }
+                        }
+                    );
+
+                }
             });
+        $window.scrollTo(0, 0);
     }
 
-    $scope.showMorePorfolio = function () {
-        $scope.showedItem += $scope.itemPerRow;
+    $scope.showMorePorfolio = function() {
+        $scope.showedItem += $scope.itemPerRow * 3;
         $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
     }
+    $scope.catSelected = function(checkedItem) {
+        var idx = $scope.selectedCats.indexOf(checkedItem);
 
+        // Is currently selected
+        if (idx > -1) {
+            $scope.selectedCats.splice(idx, 1);
+        }
+
+        // Is newly selected
+        else {
+            $scope.selectedCats.push(checkedItem);
+        }
+        $scope.ui_items = [];
+        $scope.allPreviewFolio.forEach(
+            function(element) {
+                if ($scope.selectedCats.indexOf(element.category) > -1) {
+                    $scope.ui_items.push(element);
+                }
+            }
+        );
+    }
+    $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+        console.log(document.getElementById('ui-container').clientHeight);
+        $scope.ui_container_height = Math.ceil(document.getElementById('ui-container').clientHeight / 3);
+    });
 });
