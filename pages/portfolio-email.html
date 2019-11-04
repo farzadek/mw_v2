@@ -1,0 +1,10 @@
+<section class="section-portfolio-ui" ng-controller="mwEmailCtrl">
+    <div class="row">
+        <div class="content-list col-12 col-sm-6">
+            <div class="cat" ng-repeat="ui in ui_items1 track by $index"><img ng-src="{{ui.url}}"></div>
+        </div>
+        <div class="content-list col-12 col-sm-6">
+            <div class="cat" ng-repeat="ui in ui_items2 track by $index"><img ng-src="{{ui.url}}"></div>
+        </div>
+    </div>
+</section>

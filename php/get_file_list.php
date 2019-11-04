@@ -62,7 +62,7 @@ switch ($type){
         $i = 0;
         $result = '[';
         while($i<sizeof($files)){
-            $result .= '{"url":"'.$files[$i].'"}';
+            $result .= '{"url":"images/portfolio/email/'.$files[$i].'"}';
             if($i<sizeof($files)-1){
                 $result .= ',';
             }            
