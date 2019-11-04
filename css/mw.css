@@ -753,88 +753,157 @@ body {
 .section-portfolio-ui {
   margin-top: 65px;
   position: relative;
-  margin-bottom: 5em; }
-  .section-portfolio-ui > a {
-    background-color: white;
-    color: #25aae1;
+  margin-bottom: 5em;
+  min-height: calc(100vh - 350px); }
+  .section-portfolio-ui .navbar {
     position: fixed;
     bottom: 0;
-    right: calc(50% - 15px);
-    display: inline-block;
-    padding: 8px 8px 5px;
-    border-top-left-radius: .5em;
-    border-top-right-radius: .5em;
-    font-size: 16px; }
-  .section-portfolio-ui .content-list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start; }
-    .section-portfolio-ui .content-list .cat {
+    width: 100%; }
+    .section-portfolio-ui .navbar .navbar-collapse {
+      background-color: white; }
+      .section-portfolio-ui .navbar .navbar-collapse ul.ks-cboxtags {
+        list-style: none;
+        font-family: "Oswald";
+        font-size: 14px;
+        padding: 5px 0;
+        display: block; }
+        .section-portfolio-ui .navbar .navbar-collapse ul.ks-cboxtags li {
+          display: inline-flex; }
+          .section-portfolio-ui .navbar .navbar-collapse ul.ks-cboxtags li label {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(139, 139, 139, 0.3);
+            color: #adadad;
+            border-radius: 25px;
+            white-space: nowrap;
+            margin: 3px 0px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: all .2s;
+            text-transform: uppercase;
+            padding: 4px 8px 8px; }
+            .section-portfolio-ui .navbar .navbar-collapse ul.ks-cboxtags li label::before {
+              display: inline-block;
+              font-style: normal;
+              font-variant: normal;
+              text-rendering: auto;
+              -webkit-font-smoothing: antialiased;
+              font-family: "Material Icons";
+              font-weight: 900;
+              font-size: 16px;
+              padding: 0 6px 0 0;
+              content: "\e145";
+              transition: transform .3s ease-in-out; }
+          .section-portfolio-ui .navbar .navbar-collapse ul.ks-cboxtags li input[type="checkbox"] {
+            display: absolute;
+            opacity: 0; }
+            .section-portfolio-ui .navbar .navbar-collapse ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+              border: 2px solid #1bdbf8;
+              background-color: #25aae1;
+              color: #fff;
+              transition: all .2s; }
+            .section-portfolio-ui .navbar .navbar-collapse ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+              border: 2px solid #e9a1ff; }
+          .section-portfolio-ui .navbar .navbar-collapse ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+            content: "\e5ca";
+            transform: rotate(-360deg);
+            font-family: "Material Icons";
+            transition: transform .3s ease-in-out; }
+    .section-portfolio-ui .navbar .navbar-toggler {
+      max-width: 250px;
+      display: block;
+      margin: 0 auto;
+      color: #25aae1;
       background-color: white;
-      margin: 0 10px 10px;
-      width: 33.3%;
-      padding: 5px;
-      transition: all 1s; }
-      .section-portfolio-ui .content-list .cat img {
-        width: 100%; }
-  .section-portfolio-ui .categories ul.ks-cboxtags {
-    list-style: none;
-    font-family: "Oswald";
-    font-size: 18px;
-    padding-left: 0; }
-    .section-portfolio-ui .categories ul.ks-cboxtags li {
-      display: table; }
-      .section-portfolio-ui .categories ul.ks-cboxtags li label {
-        display: inline-block;
-        background-color: rgba(255, 255, 255, 0.9);
-        border: 2px solid rgba(139, 139, 139, 0.3);
-        color: #adadad;
-        border-radius: 25px;
-        white-space: nowrap;
-        margin: 3px 0px;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-        transition: all .2s;
-        text-transform: uppercase;
-        padding: 6px 12px;
-        cursor: pointer; }
-        .section-portfolio-ui .categories ul.ks-cboxtags li label::before {
+      cursor: pointer;
+      padding-bottom: 10px;
+      margin-bottom: -9px; }
+      .section-portfolio-ui .navbar .navbar-toggler i {
+        position: relative;
+        bottom: -6px; }
+  .section-portfolio-ui .dropdown {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #25aae1; }
+    .section-portfolio-ui .dropdown .btn {
+      padding-bottom: 0;
+      color: #25aae1; }
+  .section-portfolio-ui .content-list .cat {
+    background-color: white;
+    margin: 0 auto 3rem;
+    width: 100%;
+    padding: 10px;
+    transition: all 1s;
+    box-shadow: 0 0 10px 0 #aaa;
+    border-radius: 10px; }
+    .section-portfolio-ui .content-list .cat img {
+      width: 100%; }
+  .section-portfolio-ui .categories {
+    padding: 2px; }
+    .section-portfolio-ui .categories ul.ks-cboxtags {
+      list-style: none;
+      font-family: "Oswald";
+      font-size: 18px;
+      padding-left: 0; }
+      .section-portfolio-ui .categories ul.ks-cboxtags li {
+        display: inline-flex; }
+        .section-portfolio-ui .categories ul.ks-cboxtags li label {
           display: inline-block;
-          font-style: normal;
-          font-variant: normal;
-          text-rendering: auto;
-          -webkit-font-smoothing: antialiased;
+          background-color: rgba(255, 255, 255, 0.9);
+          border: 2px solid rgba(139, 139, 139, 0.3);
+          color: #adadad;
+          border-radius: 25px;
+          white-space: nowrap;
+          margin: 3px 0px;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          transition: all .2s;
+          text-transform: uppercase;
+          padding: 6px 12px;
+          cursor: pointer; }
+          .section-portfolio-ui .categories ul.ks-cboxtags li label::before {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            font-family: "Material Icons";
+            font-weight: 900;
+            font-size: 18px;
+            padding: 2px 6px 2px 2px;
+            content: "\e145";
+            transition: transform .3s ease-in-out; }
+        .section-portfolio-ui .categories ul.ks-cboxtags li input[type="checkbox"] {
+          display: absolute;
+          opacity: 0; }
+          .section-portfolio-ui .categories ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+            border: 2px solid #1bdbf8;
+            background-color: #25aae1;
+            color: #fff;
+            transition: all .2s; }
+          .section-portfolio-ui .categories ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+            border: 2px solid #e9a1ff; }
+        .section-portfolio-ui .categories ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+          content: "\e5ca";
+          transform: rotate(-360deg);
           font-family: "Material Icons";
-          font-weight: 900;
-          font-size: 18px;
-          padding: 2px 6px 2px 2px;
-          content: "\e145";
           transition: transform .3s ease-in-out; }
-      .section-portfolio-ui .categories ul.ks-cboxtags li input[type="checkbox"] {
-        display: absolute;
-        opacity: 0; }
-        .section-portfolio-ui .categories ul.ks-cboxtags li input[type="checkbox"]:checked + label {
-          border: 2px solid #1bdbf8;
-          background-color: #25aae1;
-          color: #fff;
-          transition: all .2s; }
-        .section-portfolio-ui .categories ul.ks-cboxtags li input[type="checkbox"]:focus + label {
-          border: 2px solid #e9a1ff; }
-      .section-portfolio-ui .categories ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
-        content: "\e5ca";
-        transform: rotate(-360deg);
-        font-family: "Material Icons";
-        transition: transform .3s ease-in-out; }
 
 footer {
   width: 100%;
   background-color: #333333;
-  padding: 4em 1em 3em; }
+  height: 200px; }
   footer ul {
     display: table;
     margin: 1em auto; }
@@ -869,11 +938,11 @@ footer {
 
 @media screen and (max-width: 576px) {
   footer {
-    padding: 3em 1em 2em; }
+    padding: 2em 1em; }
     footer ul {
       padding-left: 0; }
       footer ul li {
-        margin-right: .75em; }
+        margin-right: .2em; }
         footer ul li:last-child {
           margin-right: 0; }
         footer ul li a {

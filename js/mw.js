@@ -7,7 +7,7 @@ app.config(function($routeProvider) {
         .when("/portfolio-web", {
             templateUrl: "pages/portfolio-web.html"
         })
-        .when("/portfolio-ui", {
+        .when("/ui", {
             templateUrl: "pages/portfolio-ui.html"
         })
         .when("/portfolio", {
@@ -142,7 +142,6 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
             $scope.imageToView = item.url;
         }
     }
-    $scope.ui_container_height = 0;
     $scope.itemPerRow = 1;
     $scope.allPreviewFolio = '';
     $scope.loadAllPortfolio = function(type) {
@@ -159,7 +158,7 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
                 }
                 $scope.showedItem = Math.ceil(h / 380) * $scope.itemPerRow;
                 $scope.allPreviewFolio = response.data;
-                $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
+                $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);/*
                 if (type == 'ui') {
                     $scope.ui_cat = [];
                     $scope.allPreviewFolio.forEach(element => {
@@ -191,16 +190,19 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
                         $scope.ui_items[i] = tmp;
                     }
                     $scope.selectedCats.push($scope.ui_cat[Math.ceil(Math.random() * ($scope.ui_cat.length - 1))]);
-                    $scope.ui_items = [];
+                    $scope.ui_items1 = [];
+                    $scope.ui_items2 = [];
+                    let y = true;
                     $scope.allPreviewFolio.forEach(
                         function(element) {
                             if ($scope.selectedCats.indexOf(element.category) > -1) {
-                                $scope.ui_items.push(element);
+                                if (y == true) $scope.ui_items1.push(element);
+                                else $scope.ui_items2.push(element);
+                                y = !y;
                             }
                         }
                     );
-
-                }
+                }*/
             });
         $window.scrollTo(0, 0);
     }
@@ -208,7 +210,7 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
     $scope.showMorePorfolio = function() {
         $scope.showedItem += $scope.itemPerRow * 3;
         $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
-    }
+    }/*
     $scope.catSelected = function(checkedItem) {
         var idx = $scope.selectedCats.indexOf(checkedItem);
 
@@ -221,17 +223,22 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
         else {
             $scope.selectedCats.push(checkedItem);
         }
-        $scope.ui_items = [];
+        $scope.ui_items1 = [];
+        $scope.ui_items2 = [];
+        y = true;
         $scope.allPreviewFolio.forEach(
             function(element) {
                 if ($scope.selectedCats.indexOf(element.category) > -1) {
-                    $scope.ui_items.push(element);
+                    if (y == true) $scope.ui_items1.push(element);
+                    else $scope.ui_items2.push(element);
+                    y = !y;
                 }
             }
         );
     }
     $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
         console.log(document.getElementById('ui-container').clientHeight);
-        $scope.ui_container_height = Math.ceil(document.getElementById('ui-container').clientHeight / 3);
-    });
+        $scope.ui_container_height = document.getElementById('ui-container').clientHeight;
+    });*/
 });
+
