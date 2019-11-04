@@ -1,13 +1,13 @@
 <section class="section-portfolio-graphic" ng-controller="mwGraphicCtrl">
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-4" ng-repeat="item in previewFullFolio1 track by $index">
-            <img ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)">
+            <img ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-4">
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4" ng-repeat="item in previewFullFolio2 track by $index">
-            <img ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)">
+            <img ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-4">
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4" ng-repeat="item in previewFullFolio3 track by $index">
-            <img ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)">
+            <img ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-4">
         </div>
     </div>
     <button ng-show="showedItem < previewFullFolioCount" ng-click="showMorePorfolio()" class="btn view-more-btn"><span class="icon-add_to_queue"></span> {{text.portfolio.more}}</button>
