@@ -90,29 +90,49 @@ app.controller('mwGraphicCtrl', function($scope, $http, $window) {
             if (w < 768 && w > 576) {
                 itemPerRow = 2;
             }
-            $scope.showedItem = 3 * itemPerRow;
+            $scope.showedItem = 4 * itemPerRow;
             $scope.allPreviewFolio = response.data;
+            for (let i = $scope.previewFullFolioCount - 1; i > 0; i--) {
+                j = Math.floor(Math.random() * (i + 1));
+                x = $scope.allPreviewFolio[i];
+                $scope.allPreviewFolio[i] = $scope.allPreviewFolio[j];
+                $scope.allPreviewFolio[j] = x;
+            }
             $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
             $scope.previewFullFolio1 = [];
             $scope.previewFullFolio2 = [];
             $scope.previewFullFolio3 = [];
-            for (let i = 0; i < $scope.previewFullFolio.length; i += itemPerRow) {
+
+            for (i = 0; i < $scope.previewFullFolio.length; i += itemPerRow) {
                 $scope.previewFullFolio1.push($scope.allPreviewFolio[i]);
                 if (i + 1 < $scope.allPreviewFolio.length) {
                     $scope.previewFullFolio2.push($scope.allPreviewFolio[i + 1]);
                 }
+                if (i + 2 < $scope.allPreviewFolio.length) {
+                    $scope.previewFullFolio3.push($scope.allPreviewFolio[i + 2]);
+                }
             }
         });
-    $window.scrollTo(0, 0);
 
     $scope.showMorePorfolio = function() {
-        $scope.showedItem += $scope.itemPerRow * 3;
+        const temp = $scope.showedItem;
+        $scope.showedItem += itemPerRow * 3;
         $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
+        for (i = temp; i < $scope.previewFullFolio.length; i += itemPerRow) {
+            $scope.previewFullFolio1.push($scope.allPreviewFolio[i]);
+            if (i + 1 < $scope.allPreviewFolio.length) {
+                $scope.previewFullFolio2.push($scope.allPreviewFolio[i + 1]);
+            }
+            if (i + 2 < $scope.allPreviewFolio.length) {
+                $scope.previewFullFolio3.push($scope.allPreviewFolio[i + 2]);
+            }
+        }
     }
 
     $scope.showItem = function(item) {
         $scope.imageToView = item.url;
     }
+    $window.scrollTo(0, 0);
 
 });
 
