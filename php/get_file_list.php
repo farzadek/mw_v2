@@ -40,6 +40,22 @@ switch ($type){
         $result .= ']';    
         break;
 /* =========================================================== */
+    case 'special':
+        $files = scandir('../images/portfolio/special');
+        array_splice($files, 0, 2);
+        $i = 0;
+        $result = '[';
+        while($i<sizeof($files)){
+            $tmp = getimagesize('../images/portfolio/special/'.$files[$i]);
+            $result .= '{"url":"images/portfolio/special/'.$files[$i].'", "w":'.$tmp[0].', "h":'.$tmp[1].'}';
+            if($i<sizeof($files)-1){
+                $result .= ',';
+            }            
+            $i++;
+        }
+        $result .= ']';    
+        break;        
+/* =========================================================== */
     case 'ui':
         $files = scandir('../images/portfolio/ui');
         array_splice($files, 0, 2);

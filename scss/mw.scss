@@ -976,6 +976,36 @@
         }
     }
     
+    .section-portfolio-special {
+        margin-top: 6em;
+        position: relative;
+        &>a {
+            background-color: white;
+            color: $light-blue;
+            position: fixed;
+            bottom: 0;
+            right: calc(50% - 15px);
+            display: inline-block;
+            padding: 8px 8px 5px;
+            border-top-left-radius: .5em;
+            border-top-right-radius: .5em;
+        }
+        button {
+            margin: 0 auto 1em;
+            display: block;
+            font-size: 1.25em;
+        }
+        .row {
+            &>div {
+                margin-bottom: 5em;
+                img {
+                    width: 100%;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    
     .section-portfolio-graphic {
         margin-top: 6em;
         position: relative;
@@ -1011,12 +1041,11 @@
         position: relative;
         margin-bottom: 5em;
         min-height: calc(100vh - 350px);
-
-        .navbar{
+        .navbar {
             position: fixed;
             bottom: 0;
             width: 100%;
-            .navbar-collapse{
+            .navbar-collapse {
                 background-color: white;
                 ul.ks-cboxtags {
                     list-style: none;
@@ -1079,7 +1108,7 @@
                     }
                 }
             }
-            .navbar-toggler{
+            .navbar-toggler {
                 max-width: 250px;
                 display: block;
                 margin: 0 auto;
@@ -1088,13 +1117,12 @@
                 cursor: pointer;
                 padding-bottom: 10px;
                 margin-bottom: -9px;
-                i{
+                i {
                     position: relative;
                     bottom: -6px;
                 }
             }
         }
-
         .dropdown {
             background-color: white;
             position: fixed;
@@ -1102,9 +1130,9 @@
             left: 50%;
             transform: translateX(-50%);
             color: $light-blue;
-            .btn{
-                    padding-bottom: 0;
-                    color: $light-blue;
+            .btn {
+                padding-bottom: 0;
+                color: $light-blue;
             }
         }
         .content-list {

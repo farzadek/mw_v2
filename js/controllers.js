@@ -233,3 +233,68 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
     }
 
 });
+
+/* ======================================== */
+/* ===== SPECIAL ========================== */
+app.controller('mwSpPhotoCtrl', function($scope, $http, $window) {
+    let itemPerRow = 1;
+    $scope.allPreviewFolio = '';
+    $scope.imageToView = '';
+
+    $http.get("php/get_file_list.php?type=special")
+        .then(function(response) {
+            console.log(response.data);
+            $scope.previewFullFolioCount = response.data.length;
+            var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            if (w > 768) {
+                itemPerRow = 3;
+            }
+            if (w < 768 && w > 576) {
+                itemPerRow = 2;
+            }
+            $scope.showedItem = 4 * itemPerRow;
+            $scope.allPreviewFolio = response.data;
+            for (let i = $scope.previewFullFolioCount - 1; i > 0; i--) {
+                j = Math.floor(Math.random() * (i + 1));
+                x = $scope.allPreviewFolio[i];
+                $scope.allPreviewFolio[i] = $scope.allPreviewFolio[j];
+                $scope.allPreviewFolio[j] = x;
+            }
+            $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
+            $scope.previewFullFolio1 = [];
+            $scope.previewFullFolio2 = [];
+            $scope.previewFullFolio3 = [];
+
+            for (i = 0; i < $scope.previewFullFolio.length; i += itemPerRow) {
+                $scope.previewFullFolio1.push($scope.allPreviewFolio[i]);
+                if (i + 1 < $scope.allPreviewFolio.length) {
+                    $scope.previewFullFolio2.push($scope.allPreviewFolio[i + 1]);
+                }
+                if (i + 2 < $scope.allPreviewFolio.length) {
+                    $scope.previewFullFolio3.push($scope.allPreviewFolio[i + 2]);
+                }
+            }
+        });
+
+    $scope.showMorePorfolio = function() {
+        const temp = $scope.showedItem;
+        $scope.showedItem += itemPerRow * 3;
+        $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
+        for (i = temp; i < $scope.previewFullFolio.length; i += itemPerRow) {
+            $scope.previewFullFolio1.push($scope.allPreviewFolio[i]);
+            if (i + 1 < $scope.allPreviewFolio.length) {
+                $scope.previewFullFolio2.push($scope.allPreviewFolio[i + 1]);
+            }
+            if (i + 2 < $scope.allPreviewFolio.length) {
+                $scope.previewFullFolio3.push($scope.allPreviewFolio[i + 2]);
+            }
+        }
+    }
+
+    $scope.showItem = function(item) {
+        $scope.imageToView = item.url;
+    }
+    $window.scrollTo(0, 0);
+
+});

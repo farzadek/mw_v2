@@ -16,6 +16,9 @@ app.config(function($routeProvider) {
         .when("/emails", {
             templateUrl: "pages/portfolio-email.html"
         })
+        .when("/special", {
+            templateUrl: "pages/special-photo.html"
+        })
         .otherwise({
             redirectTo: "/"
         })

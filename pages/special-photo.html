@@ -1,0 +1,32 @@
+<section class="section-portfolio-special" ng-controller="mwSpPhotoCtrl">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-4">
+            <img ng-repeat="item in previewFullFolio1 track by $index" ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-5">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4">
+            <img ng-repeat="item in previewFullFolio2 track by $index" ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-5">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-4">
+            <img ng-repeat="item in previewFullFolio3 track by $index" ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-5">
+        </div>
+    </div>
+    <button ng-show="showedItem < previewFullFolioCount" ng-click="showMorePorfolio()" class="btn view-more-btn"><span class="icon-add_to_queue"></span> {{text.portfolio.more}}</button>
+    <a ng-href="#!/"><span class="icon-home"></span></a>
+</section>
+
+<div class="modal fade" id="prevGrahicModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div id="jsModalBody" class="modal-body">{{imageToView}}
+                <img ng-src="{{imageToView}}">
+            </div>
+        </div>
+    </div>
+</div>
