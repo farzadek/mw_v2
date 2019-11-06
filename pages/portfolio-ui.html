@@ -7,27 +7,26 @@
         </div>
 
         <div class="content-list col-12 col-sm-5">
-            <div class="cat" ng-repeat="ui in ui_items1 track by $index"><img ng-src="{{ui.url}}"></div>
+            <div class="cat" ng-repeat="ui in uiToView[0] track by $index"><img ng-src="{{ui}}"></div>
         </div>
         <div class="content-list col-12 col-sm-5">
-            <div class="cat" ng-repeat="ui in ui_items2 track by $index"><img ng-src="{{ui.url}}"></div>
+            <div class="cat" ng-repeat="ui in uiToView[1] track by $index"><img ng-src="{{ui}}"></div>
         </div>
     </div>
-      
-<!--Navbar-->
-<nav class="navbar navbar-light d-block d-sm-none">          
+
+    <!--Navbar-->
+    <nav class="navbar navbar-light d-block d-sm-none">
         <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-      
-                <ul class="navbar-nav ks-cboxtags mr-auto">
-                        <li ng-repeat="cat in ui_cat"><input name="selectedCats[]" ng-click="catSelected(cat)" ng-checked="selectedCats.indexOf(cat) > -1" type="checkbox" id="checkbox{{$index}}" value="{{cat}}"><label for="checkbox{{$index}}">{{cat}}</label></li>
-                    </ul>
-      
+
+            <ul class="navbar-nav ks-cboxtags mr-auto">
+                <li ng-repeat="cat in ui_cat"><input name="selectedCats[]" ng-click="catSelected(cat)" ng-checked="selectedCats.indexOf(cat) > -1" type="checkbox" id="checkbox{{$index}}" value="{{cat}}"><label for="checkbox{{$index}}">{{cat}}</label></li>
+            </ul>
+
         </div>
-        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
-        aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">Categories <i class="material-icons">
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">Categories <i class="material-icons">
                 expand_less
                 </i></button>
-      </nav>
+    </nav>
 
 
 </section>

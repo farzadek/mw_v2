@@ -31,7 +31,8 @@ switch ($type){
         $i = 0;
         $result = '[';
         while($i<sizeof($files)){
-            $result .= '{"url":"images/portfolio/graphic/'.$files[$i].'"}';
+            $tmp = getimagesize('../images/portfolio/graphic/'.$files[$i]);
+            $result .= '{"url":"images/portfolio/graphic/'.$files[$i].'", "width":'.$tmp[0].',"height":'.$tmp[1].'}';
             if($i<sizeof($files)-1){
                 $result .= ',';
             }            
@@ -47,7 +48,7 @@ switch ($type){
         $result = '[';
         while($i<sizeof($files)){
             $tmp = getimagesize('../images/portfolio/special/'.$files[$i]);
-            $result .= '{"url":"images/portfolio/special/'.$files[$i].'", "w":'.$tmp[0].', "h":'.$tmp[1].'}';
+            $result .= '{"url":"images/portfolio/special/'.$files[$i].'", "width":'.$tmp[0].', "height":'.$tmp[1].'}';
             if($i<sizeof($files)-1){
                 $result .= ',';
             }            
@@ -62,8 +63,9 @@ switch ($type){
         $i = 0;
         $result = '[';
         while($i<sizeof($files)){ 
+            $tmp = getimagesize('../images/portfolio/ui/'.$files[$i]);
             $result .= '{"category":"'. substr_replace(explode(".",$files[$i])[0],"", -2) . '",';
-            $result .= '"url":"images/portfolio/ui/'. $files[$i] . '"}';
+            $result .= '"url":"images/portfolio/ui/'. $files[$i] . '", "height":'.$tmp[1].'}';
             if($i<sizeof($files)-1){
                 $result .= ',';
             }

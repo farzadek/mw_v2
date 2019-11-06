@@ -1,13 +1,13 @@
 <section class="section-portfolio-special" ng-controller="mwSpPhotoCtrl">
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-4">
-            <img ng-repeat="item in previewFullFolio1 track by $index" ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-5">
+            <img ng-repeat="item in itemToView[0] track by $index" ng-src="{{item}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-5">
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4">
-            <img ng-repeat="item in previewFullFolio2 track by $index" ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-5">
+            <img ng-repeat="item in itemToView[1] track by $index" ng-src="{{item}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-5">
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4">
-            <img ng-repeat="item in previewFullFolio3 track by $index" ng-src="{{item.url}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-5">
+            <img ng-repeat="item in itemToView[2] track by $index" ng-src="{{item}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-5">
         </div>
     </div>
     <button ng-show="showedItem < previewFullFolioCount" ng-click="showMorePorfolio()" class="btn view-more-btn"><span class="icon-add_to_queue"></span> {{text.portfolio.more}}</button>

@@ -35,19 +35,20 @@ app.controller('mwWebCtrl', function($scope, $http, $window) {
     $scope.allPreviewFolio = '';
     $scope.imageToView = '';
     const parent = document.getElementById("jsModalBody");
+    let wc = 360;
 
     $http.get("php/get_file_list.php?type=web")
         .then(function(response) {
             $scope.previewFullFolioCount = response.data.length;
             const w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-            const h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
             if (w > 768) {
                 itemPerRow = 3;
             }
             if (w < 768 && w > 576) {
                 itemPerRow = 2;
+                wc = 235;
             }
-            $scope.showedItem = Math.ceil(h / 380) * itemPerRow;
+            $scope.showedItem = 12;
             $scope.allPreviewFolio = response.data;
             $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
         });
@@ -76,57 +77,67 @@ app.controller('mwWebCtrl', function($scope, $http, $window) {
 /* ===== GRAPHIC ==========================*/
 app.controller('mwGraphicCtrl', function($scope, $http, $window) {
     let itemPerRow = 1;
-    $scope.allPreviewFolio = '';
+    allPreviewFolio = '';
     $scope.imageToView = '';
+    let wc = 360;
 
     $http.get("php/get_file_list.php?type=graphic")
         .then(function(response) {
             $scope.previewFullFolioCount = response.data.length;
             var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
             if (w > 768) {
                 itemPerRow = 3;
             }
             if (w < 768 && w > 576) {
                 itemPerRow = 2;
+                wc = 235;
             }
-            $scope.showedItem = 4 * itemPerRow;
-            $scope.allPreviewFolio = response.data;
+            $scope.showedItem = 12;
+            allPreviewFolio = response.data;
             for (let i = $scope.previewFullFolioCount - 1; i > 0; i--) {
                 j = Math.floor(Math.random() * (i + 1));
-                x = $scope.allPreviewFolio[i];
-                $scope.allPreviewFolio[i] = $scope.allPreviewFolio[j];
-                $scope.allPreviewFolio[j] = x;
+                x = allPreviewFolio[i];
+                allPreviewFolio[i] = allPreviewFolio[j];
+                allPreviewFolio[j] = x;
             }
-            $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
-            $scope.previewFullFolio1 = [];
-            $scope.previewFullFolio2 = [];
-            $scope.previewFullFolio3 = [];
+            previewFullFolio = allPreviewFolio.slice(0, $scope.showedItem);
 
-            for (i = 0; i < $scope.previewFullFolio.length; i += itemPerRow) {
-                $scope.previewFullFolio1.push($scope.allPreviewFolio[i]);
-                if (i + 1 < $scope.allPreviewFolio.length) {
-                    $scope.previewFullFolio2.push($scope.allPreviewFolio[i + 1]);
+            which = -1;
+            coloums = [0, 0, 0];
+            $scope.itemToView = [
+                [],
+                [],
+                []
+            ];
+            let h = 0;
+            console.log(wc);
+            previewFullFolio.forEach(
+                function(element) {
+                    which = coloums.indexOf(Math.min.apply(null, coloums));
+                    if (which < 0) { which = 0; }
+                    h = Math.round((element.height * wc) / element.width);
+                    coloums[which] += h;
+                    $scope.itemToView[which].push(element.url)
+                    console.log(which + ' - ' + h + ' - ' + element.url);
+                    console.log(coloums);
                 }
-                if (i + 2 < $scope.allPreviewFolio.length) {
-                    $scope.previewFullFolio3.push($scope.allPreviewFolio[i + 2]);
-                }
-            }
+            );
         });
 
     $scope.showMorePorfolio = function() {
         const temp = $scope.showedItem;
         $scope.showedItem += itemPerRow * 3;
-        $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
-        for (i = temp; i < $scope.previewFullFolio.length; i += itemPerRow) {
-            $scope.previewFullFolio1.push($scope.allPreviewFolio[i]);
-            if (i + 1 < $scope.allPreviewFolio.length) {
-                $scope.previewFullFolio2.push($scope.allPreviewFolio[i + 1]);
+        previewFullFolio = allPreviewFolio.slice(temp + 1, $scope.showedItem);
+        previewFullFolio.forEach(
+            function(element) {
+                which = coloums.indexOf(Math.min.apply(null, coloums));
+                if (which < 0) { which = 0; }
+                h = Math.round((element.height * (wc - 30)) / element.width);
+                coloums[which] += h;
+                $scope.itemToView[which].push(element.url)
+
             }
-            if (i + 2 < $scope.allPreviewFolio.length) {
-                $scope.previewFullFolio3.push($scope.allPreviewFolio[i + 2]);
-            }
-        }
+        );
     }
 
     $scope.showItem = function(item) {
@@ -142,7 +153,11 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
     $scope.allPreviewFolio = '';
     $scope.imageToView = '';
     $scope.selectedCats = [];
-    $scope.ui_items = [];
+    ui_items = [];
+    $scope.uiToView = [
+        [],
+        []
+    ];
     let data;
     $http.get("php/get_file_list.php?type=ui")
         .then(function(response) {
@@ -151,6 +166,8 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
             response.data.forEach(element => {
                 $scope.ui_cat.push(element.category);
             });
+
+            /* set categories unique array */
             const names = $scope.ui_cat;
 
             function removeDups(names) {
@@ -163,7 +180,7 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
                 return Object.keys(unique);
             }
             $scope.ui_cat = removeDups(names);
-
+            /* *************************** */
             for (let i = 0; i < $scope.ui_cat.length; i++) {
                 let tmp = '';
                 for (let j = 0; j < data.length; j++) {
@@ -171,18 +188,18 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
                         tmp = j == data.length - 1 ? tmp + data[j] + ',' : tmp + data[j];
                     }
                 }
-                $scope.ui_items[i] = tmp;
+                ui_items[i] = tmp;
             }
             $scope.selectedCats.push($scope.ui_cat[Math.ceil(Math.random() * ($scope.ui_cat.length - 1))]);
-            $scope.ui_items1 = [];
-            $scope.ui_items2 = [];
-            let y = true;
+            which = -1;
+            coloums = [0, 0];
             data.forEach(
                 function(element) {
                     if ($scope.selectedCats.indexOf(element.category) > -1) {
-                        if (y == true) $scope.ui_items1.push(element);
-                        else $scope.ui_items2.push(element);
-                        y = !y;
+                        which = coloums.indexOf(Math.min.apply(null, coloums));
+                        if (which < 0) { which = 0; }
+                        coloums[which] += element.height;
+                        $scope.uiToView[which].push(element.url)
                     }
                 }
             );
@@ -202,15 +219,14 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
         else {
             $scope.selectedCats.push(checkedItem);
         }
-        $scope.ui_items1 = [];
-        $scope.ui_items2 = [];
-        y = true;
+
         data.forEach(
             function(element) {
                 if ($scope.selectedCats.indexOf(element.category) > -1) {
-                    if (y == true) $scope.ui_items1.push(element);
-                    else $scope.ui_items2.push(element);
-                    y = !y;
+                    which = coloums.indexOf(Math.min.apply(null, coloums));
+                    if (which < 0) { which = 0; }
+                    coloums[which] += element.height;
+                    $scope.uiToView[which].push(element.url)
                 }
             }
         );
@@ -220,16 +236,7 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
         if (document.getElementById("previewObject")) {
             document.getElementById("previewObject").remove();
         }
-        if (type == 'web') {
-            sourceToShow = 'portfolio/web/' + item.title + '/';
-            let node = document.createElement("object");
-            node.setAttribute("type", "text/html");
-            node.setAttribute("data", sourceToShow);
-            node.setAttribute("id", "previewObject");
-            parent.appendChild(node);
-        } else {
-            $scope.imageToView = item.url;
-        }
+        $scope.imageToView = item.url;
     }
 
 });
@@ -238,58 +245,64 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
 /* ===== SPECIAL ========================== */
 app.controller('mwSpPhotoCtrl', function($scope, $http, $window) {
     let itemPerRow = 1;
-    $scope.allPreviewFolio = '';
+    allPreviewFolio = '';
     $scope.imageToView = '';
+    let wc = 360;
 
     $http.get("php/get_file_list.php?type=special")
         .then(function(response) {
-            console.log(response.data);
             $scope.previewFullFolioCount = response.data.length;
             var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-            var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
             if (w > 768) {
                 itemPerRow = 3;
             }
             if (w < 768 && w > 576) {
                 itemPerRow = 2;
+                wc = 235;
             }
             $scope.showedItem = 4 * itemPerRow;
-            $scope.allPreviewFolio = response.data;
+            allPreviewFolio = response.data;
             for (let i = $scope.previewFullFolioCount - 1; i > 0; i--) {
                 j = Math.floor(Math.random() * (i + 1));
-                x = $scope.allPreviewFolio[i];
-                $scope.allPreviewFolio[i] = $scope.allPreviewFolio[j];
-                $scope.allPreviewFolio[j] = x;
+                x = allPreviewFolio[i];
+                allPreviewFolio[i] = allPreviewFolio[j];
+                allPreviewFolio[j] = x;
             }
-            $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
-            $scope.previewFullFolio1 = [];
-            $scope.previewFullFolio2 = [];
-            $scope.previewFullFolio3 = [];
+            previewFullFolio = allPreviewFolio.slice(0, $scope.showedItem);
 
-            for (i = 0; i < $scope.previewFullFolio.length; i += itemPerRow) {
-                $scope.previewFullFolio1.push($scope.allPreviewFolio[i]);
-                if (i + 1 < $scope.allPreviewFolio.length) {
-                    $scope.previewFullFolio2.push($scope.allPreviewFolio[i + 1]);
+            which = -1;
+            coloums = [0, 0, 0];
+            $scope.itemToView = [
+                [],
+                [],
+                []
+            ];
+            let h = 0;
+            previewFullFolio.forEach(
+                function(element) {
+                    which = coloums.indexOf(Math.min.apply(null, coloums));
+                    if (which < 0) { which = 0; }
+                    h = Math.round((element.height * wc) / element.width);
+                    coloums[which] += h;
+                    $scope.itemToView[which].push(element.url)
                 }
-                if (i + 2 < $scope.allPreviewFolio.length) {
-                    $scope.previewFullFolio3.push($scope.allPreviewFolio[i + 2]);
-                }
-            }
+            );
+
         });
 
     $scope.showMorePorfolio = function() {
         const temp = $scope.showedItem;
         $scope.showedItem += itemPerRow * 3;
-        $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
-        for (i = temp; i < $scope.previewFullFolio.length; i += itemPerRow) {
-            $scope.previewFullFolio1.push($scope.allPreviewFolio[i]);
-            if (i + 1 < $scope.allPreviewFolio.length) {
-                $scope.previewFullFolio2.push($scope.allPreviewFolio[i + 1]);
+        previewFullFolio = allPreviewFolio.slice(temp + 1, $scope.showedItem);
+        previewFullFolio.forEach(
+            function(element) {
+                which = coloums.indexOf(Math.min.apply(null, coloums));
+                if (which < 0) { which = 0; }
+                h = Math.round((element.height * wc) / element.width);
+                coloums[which] += h;
+                $scope.itemToView[which].push(element.url)
             }
-            if (i + 2 < $scope.allPreviewFolio.length) {
-                $scope.previewFullFolio3.push($scope.allPreviewFolio[i + 2]);
-            }
-        }
+        );
     }
 
     $scope.showItem = function(item) {
