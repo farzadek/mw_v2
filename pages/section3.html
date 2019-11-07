@@ -19,12 +19,18 @@
                             <span ng-repeat="tag in web.tags">{{tag.tag}}</span>
                             <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('web',web)">zoom_in</i>
                         </div>
+                        <div class="item">
+                            <a ng-href="#!web">
+                                <h3>{{text.sec3.see_all_portfolio}}</h3>
+                                <i class="material-icons">zoom_in</i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <span class="icon-arrow-circle-right" ng-click="prevPreview('web')"></span>
             </div>
         </div>
-        <a ng-href="#!web" class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a>
+        <!-- <a ng-href="#!web" class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a> -->
     </section>
     <hr/>
     <section>

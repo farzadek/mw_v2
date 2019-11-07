@@ -9,6 +9,7 @@ switch ($type){
     case 'web':
         $files = scandir('../images/portfolio/web');
         array_splice($files, 0, 2);
+        shuffle($files);
         $i = 0;
         if(sizeof($files) < $limit){
             $limit = sizeof($files);
@@ -43,6 +44,7 @@ switch ($type){
         if(sizeof($files) < $limit){
             $limit = sizeof($files);
         }
+        shuffle($files);
         $result = '[';
         while($i<$limit){
             $result .= '{"url":"'.$files[$i].'"}';
@@ -61,6 +63,7 @@ switch ($type){
         if(sizeof($files) < $limit){
             $limit = sizeof($files);
         }
+        shuffle($files);
         $result = '[';
         while($i<$limit){
             $result .= '{"category":"'. substr_replace(explode(".",$files[$i])[0],"", -2) . '",';
@@ -80,6 +83,7 @@ switch ($type){
         if(sizeof($files) < $limit){
             $limit = sizeof($files);
         }
+        shuffle($files);
         $result = '[';
         while($i<$limit){
             $result .= '{"url":"'.$files[$i].'"}';
