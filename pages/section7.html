@@ -1,26 +1,27 @@
-<div class="section-7" id="contact-section">
+<div class="section-7" id="contact-section" ng-controller="mwContactCtrl">
     <h1>{{text.sec7.contact_us}}</h1>
-    <form>
+    <form name="contactForm" ng-submit="submitForm(contactForm.$valid)" novalidate>
         <div>
             <label>{{text.sec7.name}}</label>
-            <input type="text">
-            <p>{{text.sec7.err_msg}}</p>
+            <input type="text" name="name" ng-model="name" ng-required="true">
+            <p ng-show="contactForm.name.$dirty && contactForm.name.$invalid">{{text.sec7.err_msg}}</p>
         </div>
         <div>
             <label>{{text.sec7.phone}}</label>
-            <input type="text">
-            <p>{{text.sec7.err_msg}}</p>
+            <input type="text" name="phone" ng-model="phone" ng-pattern='/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/'>
+            <p ng-show="contactForm.phone.$dirty && contactForm.phone.$invalid && contactForm.phone.$error.pattern">{{text.sec7.err_phone_format}}</p>
         </div>
         <div>
             <label>E-Mail</label>
-            <input type="email">
-            <p>{{text.sec7.err_msg}}</p>
+            <input type="email" name="email" ng-model="email" ng-required="true" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'>
+            <p ng-show="contactForm.email.$dirty && contactForm.email.$invalid && contactForm.email.$error.required">{{text.sec7.err_msg}}</p>
+            <p ng-show="contactForm.email.$dirty && contactForm.email.$invalid && contactForm.email.$error.pattern">{{text.sec7.err_email_format}}</p>
         </div>
         <div>
             <label>Message</label>
-            <textarea></textarea>
-            <p>{{text.sec7.err_msg}}</p>
+            <textarea  name="message" ng-model="message"></textarea>
+            <p ng-show="contactForm.message.$dirty && contactForm.message.$invalid">{{text.sec7.err_msg}}</p>
         </div>
-        <input type="submit" class="btn view-more-btn" value="{{text.sec7.send_message}}">
+        <input type="submit" ng-disabled="contactForm.$invalid" class="btn view-more-btn" value="{{text.sec7.send_message}}" ng-click="formSubmitted()">
     </form>
 </div>

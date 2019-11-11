@@ -63,7 +63,9 @@ const texts = {
             "name": "Name",
             "phone": "Phone",
             "send_message": "Send Message",
-            "err_msg": "This box could not be empty"
+            "err_msg": "This box could not be empty",
+            "err_phone_format": "It seems that the Phone no. is not correct!",
+            "err_email_format": "It seems that the Email address is not correct!"
         },
         "portfolio": {
             "back_to_homepage": "Back to Home page",
@@ -134,7 +136,9 @@ const texts = {
             "name": "Nom complet",
             "phone": "Téléphone",
             "send_message": "Envoyer le message",
-            "err_msg": "Cette case ne peut pas être vide"
+            "err_msg": "Cette case ne peut pas être vide",
+            "err_phone_format": "Il semble que le numéro de téléphone. n'est pas correcte!",
+            "err_email_format": "Il semble que l'adresse e-mail n'est pas correcte!"
         },
         "portfolio": {
             "back_to_homepage": "Retour à la page d'accueil",

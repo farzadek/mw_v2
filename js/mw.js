@@ -91,7 +91,15 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
         url: "https://api.instagram.com/v1/users/self/media/recent",
         params: { access_token: "3648306560.1c1827a.4a2783080b7646dcac204724ad4a63fc" }
     }).then(function(response) {
-        $scope.instaPosts = response.data.data;
+        $scope.instaPosts = [];
+        response.data.data.forEach(
+            function(item){
+                if(item.tags.indexOf("mw")>-1){
+                    $scope.instaPosts.push(item);
+                }
+            }
+        );
+
     });
     $scope.nextPreview = function(prevName) {
 
