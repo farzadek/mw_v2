@@ -306,8 +306,12 @@ app.controller('mwSpPhotoCtrl', function($scope, $http, $window) {
     }
 
     $scope.showItem = function(item) {
+        if (document.getElementById("previewObject")) {
+            document.getElementById("previewObject").remove();
+        }
         $scope.imageToView = item.url;
     }
+
     $window.scrollTo(0, 0);
 
 });

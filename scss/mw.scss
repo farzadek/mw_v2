@@ -412,6 +412,7 @@
                         transform: translateY(-50%);
                         &:first-child {
                             left: 4%;
+                            z-index: 100;
                         }
                         &:last-child {
                             right: 4%;
@@ -492,6 +493,7 @@
                         transform: translateY(-50%);
                         &:first-child {
                             left: 4%;
+                            z-index: 100;
                         }
                         &:last-child {
                             right: 4%;
@@ -522,9 +524,10 @@
                                 padding: .75em;
                                 position: relative;
                                 img {
+                                    width: 100%;
                                     height: 100%;
-                                    max-height: calc(100% - 4.25em);
                                     display: block;
+                                    object-fit: cover;
                                 }
                                 i {
                                     position: absolute;
@@ -556,6 +559,7 @@
                         transform: translateY(-50%);
                         &:first-child {
                             left: 4%;
+                            z-index: 100;
                         }
                         &:last-child {
                             right: 4%;

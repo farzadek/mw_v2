@@ -8,18 +8,18 @@
         <div class="part2">
             <h1>{{text.sec3.portfolio}}</h1>
             <div class="porifilio-web row">
-                <span class="icon-arrow-circle-left" ng-click="nextPreview('web')"></span>
+                <span class="icon-arrow-circle-left" ng-click="prevPreview('web')"></span>
 
                 <div id="web-container" class="all-item-container">
                     <h2>WEB</h2>
                     <div class="items-container" id="web" style="transition: all 1s">
-                        <div class="item" ng-repeat="web in previewWebFolio">
+                        <div class="item" ng-repeat="web in previewWebFolio" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
                             <img ng-src="images/portfolio/web/{{web.url}}">
                             <h3>{{web.title}}</h3>
                             <span ng-repeat="tag in web.tags">{{tag.tag}}</span>
                             <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('web',web)">zoom_in</i>
                         </div>
-                        <div class="item">
+                        <div class="item" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
                             <a ng-href="#!web">
                                 <h3>{{text.sec3.see_all_portfolio}}</h3>
                                 <i class="material-icons">zoom_in</i>
@@ -27,70 +27,59 @@
                         </div>
                     </div>
                 </div>
-                <span class="icon-arrow-circle-right" ng-click="prevPreview('web')"></span>
+                <span class="icon-arrow-circle-right" ng-click="nextPreview('web')"></span>
             </div>
         </div>
-        <!-- <a ng-href="#!web" class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a> -->
     </section>
     <hr/>
     <section>
         <div class="part3">
             <div class="porifilio-web row">
-                <span class="icon-arrow-circle-left" ng-click="nextPreview('graphic')"></span>
+                <span class="icon-arrow-circle-left" ng-click="prevPreview('graphic')"></span>
 
-                <div class="all-item-container">
+                <div id="web-container" class="all-item-container">
                     <h2>{{text.sec3.graphic_design}}</h2>
                     <div class="items-container" id="graphic" style="transition: all 1s">
-                        <div class="item" ng-repeat="item in previewGraphicFolio">
-                            <img ng-src="images/portfolio/graphic/{{item.url}}">
-                            <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('graphic',item)">zoom_in</i>
+                        <div class="item" ng-repeat="web in previewGraphicFolio" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
+                            <img ng-src="images/portfolio/graphic/{{web.url}}">
+                            <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('graphic',web)">zoom_in</i>
+                        </div>
+                        <div class="item" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
+                            <a ng-href="#!graphic">
+                                <h3>{{text.sec3.see_all_portfolio}}</h3>
+                                <i class="material-icons">zoom_in</i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <span class="icon-arrow-circle-right" ng-click="prevPreview('graphic')"></span>
+                <span class="icon-arrow-circle-right" ng-click="nextPreview('graphic')"></span>
             </div>
         </div>
-        <a ng-href="#!graphic" class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a>
 
     </section>
     <hr/>
-    <section>
+    <section ng-init="init()">
         <div class="part4">
             <div class="porifilio-web row">
-                <span class="icon-arrow-circle-left" ng-click="nextPreview('ui')"></span>
+                    <span class="icon-arrow-circle-left" ng-click="prevPreview('ui')"></span>
 
-                <div class="all-item-container">
-                    <h2>{{text.sec3.web_design_ui}}</h2>
-                    <div class="items-container" id="ui" style="transition: all 1s">
-                        <div class="item" ng-repeat="item in previewUiFolio">
-                            <img ng-src="images/portfolio/ui/{{item.url}}">
-                            <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('ui',item)">zoom_in</i>
+                    <div id="web-container" class="all-item-container">
+                        <h2>{{text.sec3.web_design_ui}}</h2>
+                        <div class="items-container" id="ui" style="transition: all 1s">
+                            <div class="item" ng-repeat="web in previewUiFolio" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
+                                <img ng-src="images/portfolio/ui/{{web.url}}">
+                                <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('ui',web)">zoom_in</i>
+                            </div>
+                            <div class="item" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
+                                <a ng-href="#!ui">
+                                    <h3>{{text.sec3.see_all_portfolio}}</h3>
+                                    <i class="material-icons">zoom_in</i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <span class="icon-arrow-circle-right" ng-click="prevPreview('ui')"></span>
+                    <span class="icon-arrow-circle-right" ng-click="nextPreview('ui')"></span>
             </div>
         </div>
-        <a ng-href="#!ui" class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a>
-    </section>
-    <hr/>
-    <section>
-        <div class="part5">
-            <div class="porifilio-web row">
-                <span class="icon-arrow-circle-left" ng-click="nextPreview('email')"></span>
-
-                <div class="all-item-container">
-                    <h2>{{text.sec3.email_marketing}}</h2>
-                    <div class="items-container" id="emailMarketing" style="transition: all 1s">
-                        <div class="item" ng-repeat="item in previewEmailFolio">
-                            <img ng-src="images/portfolio/email/{{item.url}}">
-                            <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('email',item)">zoom_in</i>
-                        </div>
-                    </div>
-                </div>
-                <span class="icon-arrow-circle-right" ng-click="prevPreview('email')"></span>
-            </div>
-        </div>
-        <a ng-href="#!emails" class="btn view-more-btn">{{text.sec3.see_all_portfolio}}</a>
     </section>
 </div>

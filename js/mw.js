@@ -13,9 +13,11 @@ app.config(function($routeProvider) {
         .when("/graphic", {
             templateUrl: "pages/portfolio.html"
         })
+        /*
         .when("/emails", {
             templateUrl: "pages/portfolio-email.html"
         })
+        */
         .when("/special", {
             templateUrl: "pages/special-photo.html"
         })
@@ -46,11 +48,13 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
     $scope.previewFullFolio = '';
     $scope.previewFullFolioCount = 0;
     $scope.webPrevPosition = 0;
-    $scope.GraphicPrevPosition = 0;
+    $scope.graphicPrevPosition = 0;
     $scope.uiPrevPosition = 0;
     $scope.instaPosts = '';
     const parent = document.getElementById("jsModalBody");
     let sourceToShow = '';
+    let scroll_per_page = 1;
+
 
     $scope.scrollTo = function(id) {
         $location.hash(id);
@@ -90,46 +94,74 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
         $scope.instaPosts = response.data.data;
     });
     $scope.nextPreview = function(prevName) {
+
         switch (prevName) {
             case 'web':
-                if ($scope.webPrevPosition > -3 * 312) {
-                    $scope.webPrevPosition -= 312;
+                if ($scope.webPrevPosition > -(6 - scroll_per_page) * ($scope.scroll_prev_item_width + 40)) {
+                    $scope.webPrevPosition -= ($scope.scroll_prev_item_width + 40);
+                    document.getElementById('web').style.left = $scope.webPrevPosition + 'px';
                 }
                 break;
             case 'graphic':
-                if ($scope.graphicPrevPosition > -3 * 312) {
-                    $scope.graphicPrevPosition -= 312;
+                if ($scope.graphicPrevPosition > -(6 - scroll_per_page) * ($scope.scroll_prev_item_width + 40)) {
+                    $scope.graphicPrevPosition -= ($scope.scroll_prev_item_width + 40);
+                    document.getElementById('graphic').style.left = $scope.graphicPrevPosition + 'px';
                 }
+                console.log($scope.graphicPrevPosition);
                 break;
             case 'ui':
-                if ($scope.uiPrevPosition > -3 * 312) {
-                    $scope.uiPrevPosition -= 312;
+                if ($scope.uiPrevPosition > -(6 - scroll_per_page) * ($scope.scroll_prev_item_width + 40)) {
+                    $scope.uiPrevPosition -= ($scope.scroll_prev_item_width + 40);
+                    document.getElementById('ui').style.left = $scope.uiPrevPosition + 'px';
                 }
                 break;
         }
-        document.getElementById(prevName).style.left = $scope.webPrevPosition + 'px';
     }
 
     $scope.prevPreview = function(prevName) {
         switch (prevName) {
             case 'web':
-                if ($scope.webPrevPosition <= -312) {
-                    $scope.webPrevPosition += 312;
+                if ($scope.webPrevPosition <= -($scope.scroll_prev_item_width + 40)) {
+                    $scope.webPrevPosition += ($scope.scroll_prev_item_width + 40);
+                    document.getElementById('web').style.left = $scope.webPrevPosition + 'px';
                 }
                 break;
             case 'graphic':
-                if ($scope.graphicPrevPosition <= -312) {
-                    $scope.graphicPrevPosition += 312;
+                if ($scope.graphicPrevPosition <= -($scope.scroll_prev_item_width + 40)) {
+                    $scope.graphicPrevPosition += ($scope.scroll_prev_item_width + 40);
+                    document.getElementById('graphic').style.left = $scope.graphicPrevPosition + 'px';
                 }
                 break;
             case 'ui':
-                if ($scope.uiPrevPosition <= -312) {
-                    $scope.uiPrevPosition += 312;
+                if ($scope.uiPrevPosition <= -($scope.scroll_prev_item_width + 40)) {
+                    $scope.uiPrevPosition += ($scope.scroll_prev_item_width + 40);
+                    document.getElementById('ui').style.left = $scope.uiPrevPosition + 'px';
                 }
                 break;
         }
-        document.getElementById(prevName).style.left = $scope.webPrevPosition + 'px';
     }
 
+    $scope.showItem = function(type, item) {
+        if (document.getElementById("previewObject")) {
+            document.getElementById("previewObject").remove();
+        }
+        if (type == 'web') {
+            sourceToShow = 'portfolio/web/' + item.title + '/';
+            let node = document.createElement("object");
+            node.setAttribute("type", "text/html");
+            node.setAttribute("data", sourceToShow);
+            node.setAttribute("id", "previewObject");
+            parent.appendChild(node);
+        } else {
+            _url = 'images/portfolio/' + type + '/' + item.url;
+            $scope.imageToView = _url;
+        }
+    }
+
+    $scope.init = function() {
+        let wdt = document.getElementById('web-container').clientWidth;
+        if (wdt > 768) { scroll_per_page = 3 } else if (wdt < 768 && wdt > 576) { scroll_per_page = 2 } else { scroll_per_page = 1 }
+        $scope.scroll_prev_item_width = (document.getElementById('web-container').clientWidth / scroll_per_page - 40);
+    };
 
 });
