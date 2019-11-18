@@ -74,13 +74,13 @@
             <div class="container">
                 <ul>
                     <li><i class="material-icons" ng-click="openMenu()">close</i></li>
-                    <li><a href="#home-section">{{text.menu.home}}</a></li>
-                    <li><a href="#what-we-do-section">{{text.menu.what_we_do}}</a></li>
-                    <li><a href="#portfolio-section">{{text.menu.portfolio}}</a></li>
-                    <li><a href="#about-section">{{text.menu.about_us}}</a></li>
-                    <li><a href="#contact-section">{{text.menu.contact_us}}</a></li>
+                    <li><a ng-click="scrollTo('home-section');openMenu();" href="">{{text.menu.home}}</a></li>
+                    <li><a ng-click="scrollTo('what_we_do_section');openMenu();" href="">{{text.menu.what_we_do}}</a></li>
+                    <li><a ng-click="scrollTo('portfolio_section');openMenu()" href="">{{text.menu.portfolio}}</a></li>
+                    <li><a ng-click="scrollTo('about-section');openMenu()" href="">{{text.menu.about_us}}</a></li>
+                    <li><a ng-click="scrollTo('contact-section');openMenu()" href="">{{text.menu.contact_us}}</a></li>
                     <li>
-                        <a href="" ng-click="changeLang()"><img ng-src="images/{{text.menu.lang}}_flag.png">{{text.menu.lang}}</a>
+                        <a href="" ng-click="changeLang();openMenu()"><img ng-src="images/{{text.menu.lang}}_flag.png">{{text.menu.lang}}</a>
                     </li>
                 </ul>
             </div>
@@ -88,8 +88,8 @@
         <div ng-view></div>
         <footer class="pt-3 pb-3">
             <ul>
-                <li><a href="" ng-click="scrollTo('what-we-do-section')">{{text.menu.what_we_do}}</a></li>
-                <li><a href="" ng-click="scrollTo('portfolio-section')">{{text.menu.portfolio}}</a></li>
+                <li><a href="" ng-click="scrollTo('what_we_do_section')">{{text.menu.what_we_do}}</a></li>
+                <li><a href="" ng-click="scrollTo('portfolio_section')">{{text.menu.portfolio}}</a></li>
                 <li><a href="" ng-click="scrollTo('about-section')">{{text.menu.about_us}}</a></li>
                 <li><a href="" ng-click="scrollTo('contact-section')">{{text.menu.contact_us}}</a></li>
                 <li>

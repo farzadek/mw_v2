@@ -1,4 +1,4 @@
-<div class="section-3" id="portfolio-section">
+<div class="section-3" id="portfolio_section">
     <div class="part1">
         <h1>{{text.sec3.some_of_our_works}}</h1>
         <p>{{text.sec3.some_of_our_works_text}}</p>
@@ -19,11 +19,8 @@
                             <span ng-repeat="tag in web.tags">{{tag.tag}}</span>
                             <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('web',web)">zoom_in</i>
                         </div>
-                        <div class="item" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
-                            <a ng-href="#!web">
-                                <h3>{{text.sec3.see_all_portfolio}}</h3>
-                                <i class="material-icons">zoom_in</i>
-                            </a>
+                        <div class="item see-all" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
+                            <a ng-href="#!web">{{text.sec3.see_all_portfolio}}</a>
                         </div>
                     </div>
                 </div>
@@ -44,11 +41,8 @@
                             <img ng-src="images/portfolio/graphic/{{web.url}}">
                             <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('graphic',web)">zoom_in</i>
                         </div>
-                        <div class="item" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
-                            <a ng-href="#!graphic">
-                                <h3>{{text.sec3.see_all_portfolio}}</h3>
-                                <i class="material-icons">zoom_in</i>
-                            </a>
+                        <div class="item see-all" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
+                            <a ng-href="#!graphic">{{text.sec3.see_all_portfolio}}</a>
                         </div>
                     </div>
                 </div>
@@ -61,24 +55,21 @@
     <section ng-init="init()">
         <div class="part4">
             <div class="porifilio-web row">
-                    <span class="icon-arrow-circle-left" ng-click="prevPreview('ui')"></span>
+                <span class="icon-arrow-circle-left" ng-click="prevPreview('ui')"></span>
 
-                    <div id="web-container" class="all-item-container">
-                        <h2>{{text.sec3.web_design_ui}}</h2>
-                        <div class="items-container" id="ui" style="transition: all 1s">
-                            <div class="item" ng-repeat="web in previewUiFolio" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
-                                <img ng-src="images/portfolio/ui/{{web.url}}">
-                                <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('ui',web)">zoom_in</i>
-                            </div>
-                            <div class="item" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
-                                <a ng-href="#!ui">
-                                    <h3>{{text.sec3.see_all_portfolio}}</h3>
-                                    <i class="material-icons">zoom_in</i>
-                                </a>
-                            </div>
+                <div id="web-container" class="all-item-container">
+                    <h2>{{text.sec3.web_design_ui}}</h2>
+                    <div class="items-container" id="ui" style="transition: all 1s">
+                        <div class="item" ng-repeat="web in previewUiFolio" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
+                            <img ng-src="images/portfolio/ui/{{web.url}}">
+                            <i class="material-icons" data-toggle="modal" data-target="#prevModal" ng-click="showItem('ui',web)">zoom_in</i>
+                        </div>
+                        <div class="item see-all" ng-style="{ 'width' : scroll_prev_item_width+'px' }">
+                            <a ng-href="#!ui">{{text.sec3.see_all_portfolio}}</a>
                         </div>
                     </div>
-                    <span class="icon-arrow-circle-right" ng-click="nextPreview('ui')"></span>
+                </div>
+                <span class="icon-arrow-circle-right" ng-click="nextPreview('ui')"></span>
             </div>
         </div>
     </section>

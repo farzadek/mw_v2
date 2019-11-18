@@ -110,7 +110,7 @@ app.controller('mwGraphicCtrl', function($scope, $http, $window) {
                 []
             ];
             let h = 0;
-            console.log(wc);
+
             previewFullFolio.forEach(
                 function(element) {
                     which = coloums.indexOf(Math.min.apply(null, coloums));
@@ -314,16 +314,4 @@ app.controller('mwSpPhotoCtrl', function($scope, $http, $window) {
 
     $window.scrollTo(0, 0);
 
-});
-
-/* ======================================== */
-/* ===== SPECIAL ========================== */
-app.controller('mwContactCtrl', function($scope, $http) {
-    let submitPressed = false;
-
-    $scope.formSubmitted = function() {
-        submitPressed = true;
-        console.log($scope.contactForm);
-
-    };
 });

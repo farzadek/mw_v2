@@ -9,7 +9,7 @@ const texts = {
             "contact_us": "contact us"
         },
         "sec1": {
-            "slogan": "We are a small and family web studio in Longueuil. Our vision is to make beautiful websites for our clients.",
+            "slogan": "A small web programmer and graphic designer professional team, in a small studio in Longueuil!",
             "tell_us_what_you_need": "Tell us what you need"
         },
         "sec2": {
@@ -63,9 +63,14 @@ const texts = {
             "name": "Name",
             "phone": "Phone",
             "send_message": "Send Message",
-            "err_msg": "This box could not be empty",
-            "err_phone_format": "It seems that the Phone no. is not correct!",
-            "err_email_format": "It seems that the Email address is not correct!"
+            "err_name_empty": "Don't you want to tell me your name?",
+            "err_name_pattern": "Please give me a correct name!",
+            "err_phone_pattern": "It seems that the Phone no. is not correct!",
+            "err_email_pattern": "It seems that the Email address is not correct!",
+            "err_phone_email_empty": "At least give me your Phone number or Email address!",
+            "err_msg_empty": "What we'll talk about? give me a clue!",
+            "email_sent": "Thanks, Your message received, I'll contact you as soon as possible!",
+            "email_not_sent": "Some technical problem happened, I didn't received your message. Would you like to call me? it's (438) 300 - 0456"
         },
         "portfolio": {
             "back_to_homepage": "Back to Home page",
@@ -82,7 +87,7 @@ const texts = {
             "contact_us": "contactez-nous"
         },
         "sec1": {
-            "slogan": "Nous sommes un petit studio Web familial à Longueuil. Notre vision est de créer de beaux sites Web pour nos clients.",
+            "slogan": "Une petite équipe de programmeurs Web et infographistes, dans un petit studio de Longueuil!",
             "tell_us_what_you_need": "Dites-nous ce que vous avez besoin",
         },
         "sec2": {
@@ -136,9 +141,14 @@ const texts = {
             "name": "Nom complet",
             "phone": "Téléphone",
             "send_message": "Envoyer le message",
-            "err_msg": "Cette case ne peut pas être vide",
-            "err_phone_format": "Il semble que le numéro de téléphone. n'est pas correcte!",
-            "err_email_format": "Il semble que l'adresse e-mail n'est pas correcte!"
+            "err_name_empty": "Tu ne veux pas me dire ton nom?",
+            "err_name_pattern": "Merci de me donner un nom correct!",
+            "err_phone_pattern": "Il semble que le numéro de téléphone. n'est pas correcte!",
+            "err_email_pattern": "Il semble que l'adresse e-mail n'est pas correcte!",
+            "err_phone_email_empty": "Au moins donnez-moi votre numéro de téléphone ou votre adresse e-mail!",
+            "err_msg_empty": "De quoi on va parler? donnez-moi un indice!",
+            "email_sent": "Merci, Votre message a reçu, je vous contacterai dès que possible!",
+            "email_not_sent": "Un problème technique s'est produit, je n'ai pas reçu votre message. Voulez-vous m'appeler? (438) 300 - 0456"
         },
         "portfolio": {
             "back_to_homepage": "Retour à la page d'accueil",
@@ -146,9 +156,3 @@ const texts = {
         }
     }
 };
-/*
-$texts['get_in_touch'] = ['GET IN TOUCH', 'ENTRER EN CONTACT'];
-$texts['preview_the_project'] = ['Preview the project', 'Prévisualiser le projet'];
-$texts['privacy_policy'] = ['Privacy Policy', 'Politique de Confidentialité'];
-$texts['back_to_homepage'] = ['Back to Home page', 'Retour à la page d\'accueil'];
-    */

@@ -13,11 +13,6 @@ app.config(function($routeProvider) {
         .when("/graphic", {
             templateUrl: "pages/portfolio.html"
         })
-        /*
-        .when("/emails", {
-            templateUrl: "pages/portfolio-email.html"
-        })
-        */
         .when("/special", {
             templateUrl: "pages/special-photo.html"
         })
@@ -32,7 +27,7 @@ app.directive('onFinishRender', function($timeout) {
             if (scope.$last === true) {
                 $timeout(function() {
                     scope.$emit('ngRepeatFinished');
-                }, 4000);
+                }, 3000);
             }
         }
     }
@@ -55,14 +50,13 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
     let sourceToShow = '';
     let scroll_per_page = 1;
 
+    $scope.openMenu = function() {
+        $scope.MenuIsOpen = !$scope.MenuIsOpen;
+    }
 
     $scope.scrollTo = function(id) {
         $location.hash(id);
         $anchorScroll();
-    }
-
-    $scope.openMenu = function() {
-        $scope.MenuIsOpen = !$scope.MenuIsOpen;
     }
 
     $scope.changeLang = function() {
@@ -93,8 +87,8 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
     }).then(function(response) {
         $scope.instaPosts = [];
         response.data.data.forEach(
-            function(item){
-                if(item.tags.indexOf("mw")>-1){
+            function(item) {
+                if (item.tags.indexOf("mw") > -1 || item.tags.indexOf("montrealweb") > -1) {
                     $scope.instaPosts.push(item);
                 }
             }
@@ -102,7 +96,6 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
 
     });
     $scope.nextPreview = function(prevName) {
-
         switch (prevName) {
             case 'web':
                 if ($scope.webPrevPosition > -(6 - scroll_per_page) * ($scope.scroll_prev_item_width + 40)) {
@@ -115,7 +108,6 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
                     $scope.graphicPrevPosition -= ($scope.scroll_prev_item_width + 40);
                     document.getElementById('graphic').style.left = $scope.graphicPrevPosition + 'px';
                 }
-                console.log($scope.graphicPrevPosition);
                 break;
             case 'ui':
                 if ($scope.uiPrevPosition > -(6 - scroll_per_page) * ($scope.scroll_prev_item_width + 40)) {
@@ -166,10 +158,79 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
         }
     }
 
+    /* ===================== CONTACT =============================== */
+    $scope.contactForm = { name: '', phone: '', email: '', message: '' };
+
+    function resetErrors() {
+        $scope.theForm = [
+            { "empty": false, "pattern": false, "msg": "" },
+            { "empty": false, "pattern": false, "msg": "" },
+            { "empty": false, "pattern": false, "msg": "" },
+            { "empty": false, "msg": "" }
+        ];
+        $scope.showEmailSent_success = false;
+        $scope.showEmailSent_fail = false;
+    }
+
+    resetErrors();
+
+    $scope.formSubmitted = function() {
+        resetErrors();
+        let err = false;
+        if ($scope.contactForm.name == undefined || $scope.contactForm.name.trim().length == 0) {
+            $scope.theForm[0].empty = true;
+            err = true;
+        } else if (/^[a-zA-Z ]+$/.test($scope.contactForm.name) === false) {
+            $scope.theForm[0].pattern = true;
+            err = true;
+        }
+
+
+        if (($scope.contactForm.phone == undefined || $scope.contactForm.phone.trim().length == 0) && ($scope.contactForm.email == undefined || $scope.contactForm.email.trim().length == 0)) {
+            $scope.theForm[1].empty = true;
+            $scope.theForm[2].empty = true;
+            err = true;
+        } else {
+            if ($scope.contactForm.phone != undefined && $scope.contactForm.phone.trim().length > 0 && /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/.test($scope.contactForm.phone) == false) {
+                $scope.theForm[1].pattern = true;
+                err = true;
+            }
+            if ($scope.contactForm.email != undefined && $scope.contactForm.email.trim().length > 0 && /\S+@\S+\.\S+/.test($scope.contactForm.email) == false) {
+                $scope.theForm[2].pattern = true;
+                err = true;
+            }
+        }
+
+        if ($scope.contactForm.message == undefined || $scope.contactForm.message.trim().length == 0) {
+            $scope.theForm[3].empty = true;
+            $scope.theForm[3].msg = $scope.text.sec7.err_msg_empty;
+            err = true;
+        }
+
+        if (!err) {
+            $http({
+                method: "POST",
+                url: "php/sendmail.php?name=" + $scope.contactForm.name + "&phone=" + $scope.contactForm.phone
+            }).then(function(response) {
+                if (response.data == 'ok') {
+                    $scope.contactForm.email = '';
+                    $scope.contactForm.name = '';
+                    $scope.contactForm.phone = '';
+                    $scope.contactForm.message = '';
+                    $scope.showEmailSent_success = true;
+                    setTimeout(function() { resetErrors(); }, 5000);
+                } else {
+                    $scope.showEmailSent_fail = true;
+                }
+            });
+        }
+    }
+
     $scope.init = function() {
         let wdt = document.getElementById('web-container').clientWidth;
         if (wdt > 768) { scroll_per_page = 3 } else if (wdt < 768 && wdt > 576) { scroll_per_page = 2 } else { scroll_per_page = 1 }
         $scope.scroll_prev_item_width = (document.getElementById('web-container').clientWidth / scroll_per_page - 40);
     };
+
 
 });

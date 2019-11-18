@@ -4,10 +4,6 @@
     <div class="row">
         <div class="col-6 col-sm-4 col-md-3" ng-repeat="item in instaPosts" ng-if="item.type=='image'">
             <img ng-src="{{item.images.standard_resolution.url}}" alt="instagram post image">
-            <video ng-if="item.type=='video'" controls>
-                <source ng-src="{{item.videos.standard_resolution.url}}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
         </div>
     </div>
 </div>
