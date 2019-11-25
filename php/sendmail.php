@@ -22,4 +22,8 @@ if(mail('farzadek@gmail.com', 'FROM MONTREALWEB - CONTACT', $messageReceived)){
     echo 'no';
 }
 
+if($data[1] != ''){
+    $messageReceived = '<p>Dear '.$data[0].'</p><p>We have received your message and we will contact you as soon as possible. <br/>Sincerely,<br/>MontrealWeb</p>';
+    mail($data[1], 'MONTREALWEB.ca', $messageReceived);
+}
 ?>

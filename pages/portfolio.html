@@ -11,22 +11,21 @@
         </div>
     </div>
     <button ng-show="showedItem < previewFullFolioCount" ng-click="showMorePorfolio()" class="btn view-more-btn"><span class="icon-add_to_queue"></span> {{text.portfolio.more}}</button>
-    <a ng-href="#!/"><span class="icon-home"></span></a>
-</section>
 
-<div class="modal fade" id="prevGrahicModal">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+    <div class="modal fade" id="prevGrahicModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-            <!-- Modal body -->
-            <div id="jsModalBody" class="modal-body">{{imageToView}}
-                <img ng-src="{{imageToView}}">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <img ng-src="{{imageToView}}">
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>

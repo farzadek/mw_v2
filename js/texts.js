@@ -9,7 +9,7 @@ const texts = {
             "contact_us": "contact us"
         },
         "sec1": {
-            "slogan": "A small web programmer and graphic designer professional team, in a small studio in Longueuil!",
+            "slogan": "A small and professional web programmer and graphic designer team, in a small studio in Longueuil!",
             "tell_us_what_you_need": "Tell us what you need"
         },
         "sec2": {
@@ -31,8 +31,8 @@ const texts = {
             "some_of_our_works_text": "You can find here some of our works, included Web programming, web design, graphic design or photography.",
             "portfolio": "portfolio",
             "see_all_portfolio": "See complete portfolio",
-            "graphic_design": "Conception graphique",
-            "web_design_ui": "Conception Web (UI)",
+            "graphic_design": "graphic design",
+            "web_design_ui": "Web Design (UI)",
             "email_marketing": "publicité par e-mail"
         },
         "sec4": {
@@ -45,14 +45,14 @@ const texts = {
             "we_are_expert_in_web_text": "After years of education in IT, Computer application programming, Web technology and Infographie, and more than 10 years of experiences in big, medium or small size projects, now we can say that we are expert in some areas in web and IT."
         },
         "sec5": {
-            "meet_the_team": "RENCONTRER L'ÉQUIPE",
-            "we_are_expert_in_what_we_do": "Nous sommes experts dans ce que nous faisons!",
-            "programmer_developer": "Programmeur / Développeur",
-            "farzad_text": "Développeur Web expérimenté et bien éduqué. Il a étudié en \"Programmation d'applications informatiques\", \"Technologie Web\" et \"Infographie\" et possède également plus de 6 années d'expérience dans le domaine du Web, de la programmation et de la conception.",
-            "sales_manager_accountant": "Directrice des ventes et Comptable",
-            "lili_text": "Directrice commercial et directrice financier. Elle a étudié en \"Économie théorique\" et en \"Comptabilité\". Elle a plus de 5 ans d'expérience en tant que responsable des ventes et 2 ans en tant que technicienne en comptabilité.",
-            "motivators": "Motivatrices",
-            "motivators_text": "Céline, a 4 ans et Caroline a moin d'un an. Ils sont experts dans leur rôle de motivateur de la vie."
+            "meet_the_team": "MEET THE TEAM",
+            "we_are_expert_in_what_we_do": "We Are Expert In What we do!",
+            "programmer_developer": "Programmer / Developer",
+            "farzad_text": "A educated and experienced, web developer/designer. He educated in \"Computer Application Programming\", \"Web Technology\" and \"Infographie\" and also has more than 6 years experiences in the field of Web, Programming and Design.",
+            "sales_manager_accountant": "Sales manager & Accountant",
+            "lili_text": "A perfect sales manager and Financial manager. She educated in \"Theoretical Economy\" and \"Accounting\". She has more than 5 years of experiences as Sales Manager and 2 years as Accounting Technician.",
+            "motivators": "Motivators",
+            "motivators_text": "Céline, is 4 years old and Caroline, is less than a year. They are expert in their role as Life Motivator."
         },
         "sec6": {
             "social_network": "Social networks",
@@ -87,7 +87,7 @@ const texts = {
             "contact_us": "contactez-nous"
         },
         "sec1": {
-            "slogan": "Une petite équipe de programmeurs Web et infographistes, dans un petit studio de Longueuil!",
+            "slogan": "Une petite équipe de programmeurs Web et de graphistes professionnels dans un petit studio à Longueuil!",
             "tell_us_what_you_need": "Dites-nous ce que vous avez besoin",
         },
         "sec2": {
@@ -109,8 +109,8 @@ const texts = {
             "portfolio": "portefeuille",
             "some_of_our_works_text": "Vous pouvez trouver ici certaines de nos œuvres, y compris la programmation Web, la conception Web, la conception graphique ou la photographie.",
             "see_all_portfolio": "Voir le portfolio complet",
-            "graphic_design": "graphic design",
-            "web_design_ui": "Web Design (UI)",
+            "graphic_design": "Conception graphique",
+            "web_design_ui": "Conception Web (UI)",
             "email_marketing": "email marketing"
         },
         "sec4": {
@@ -123,14 +123,14 @@ const texts = {
             "we_are_expert_in_web_text": "Après des années de formation en informatique, en programmation d'applications, en technologie Web et en infographie, et plus de 10 ans d'expérience dans des projets de grande, moyenne ou petite taille, nous pouvons maintenant affirmer que nous sommes des experts dans certains domaines du web et de l'informatique."
         },
         "sec5": {
-            "meet_the_team": "MEET THE TEAM",
-            "we_are_expert_in_what_we_do": "We Are Expert In What we do!",
-            "programmer_developer": "Programmer / Developer",
-            "farzad_text": "A educated and experienced, web developer/designer. He educated in \"Computer Application Programming\", \"Web Technology\" and \"Infographie\" and also has more than 6 years experiences in the field of Web, Programming and Design.",
-            "sales_manager_accountant": "Sales manager & Accountant",
-            "lili_text": "A perfect sales manager and Financial manager. She educated in \"Theoretical Economy\" and \"Accounting\". She has more than 5 years of experiences as Sales Manager and 2 years as Accounting Technician.",
-            "motivators": "Motivators",
-            "motivators_text": "Céline, is 4 years old and Caroline, is less than a year. They are expert in their role as Life Motivator."
+            "meet_the_team": "RENCONTRER L'ÉQUIPE",
+            "we_are_expert_in_what_we_do": "Nous sommes experts dans ce que nous faisons!",
+            "programmer_developer": "Programmeur / Développeur",
+            "farzad_text": "Développeur Web expérimenté et bien éduqué. Il a étudié en \"Programmation d'applications informatiques\", \"Technologie Web\" et \"Infographie\" et possède également plus de 6 années d'expérience dans le domaine du Web, de la programmation et de la conception.",
+            "sales_manager_accountant": "Directrice des ventes et Comptable",
+            "lili_text": "Directrice commercial et directrice financier. Elle a étudié en \"Économie théorique\" et en \"Comptabilité\". Elle a plus de 5 ans d'expérience en tant que responsable des ventes et 2 ans en tant que technicienne en comptabilité.",
+            "motivators": "Motivatrices",
+            "motivators_text": "Céline, a 4 ans et Caroline a moin d'un an. Ils sont experts dans leur rôle de motivateur de la vie."
         },
         "sec6": {
             "social_network": "Réseaux sociaux",

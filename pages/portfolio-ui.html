@@ -7,10 +7,14 @@
         </div>
 
         <div class="content-list col-12 col-sm-5">
-            <div class="cat" ng-repeat="ui in uiToView[0] track by $index"><img ng-src="{{ui}}"></div>
+            <div class="cat" ng-repeat="ui in uiToView[0] track by $index">
+                <img ng-src="{{ui}}" data-toggle="modal" data-target="#prevUiModal" ng-click="showUi(ui)">
+            </div>
         </div>
         <div class="content-list col-12 col-sm-5">
-            <div class="cat" ng-repeat="ui in uiToView[1] track by $index"><img ng-src="{{ui}}"></div>
+            <div class="cat" ng-repeat="ui in uiToView[1] track by $index">
+                <img ng-src="{{ui}}" data-toggle="modal" data-target="#prevUiModal" ng-click="showUi(ui)">
+            </div>
         </div>
     </div>
 
@@ -28,5 +32,21 @@
                 </i></button>
     </nav>
 
+    <div class="modal fade" id="prevUiModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <img ng-src="{{imageToView}}">
+                </div>
+            </div>
+        </div>
+    </div>
 
 </section>

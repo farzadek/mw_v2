@@ -43,7 +43,7 @@ switch ($type){
 /* =========================================================== */
     case 'special':
         $files = scandir('../images/portfolio/special');
-        array_splice($files, 0, 2);
+        shuffle(array_splice($files, 0, 2));
         $i = 0;
         $result = '[';
         while($i<sizeof($files)){

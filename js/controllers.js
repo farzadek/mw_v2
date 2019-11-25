@@ -55,7 +55,7 @@ app.controller('mwWebCtrl', function($scope, $http, $window) {
     $window.scrollTo(0, 0);
 
     $scope.showMorePorfolio = function() {
-        $scope.showedItem += $scope.itemPerRow * 3;
+        $scope.showedItem += itemPerRow * 3;
         $scope.previewFullFolio = $scope.allPreviewFolio.slice(0, $scope.showedItem);
     }
 
@@ -77,7 +77,8 @@ app.controller('mwWebCtrl', function($scope, $http, $window) {
 /* ===== GRAPHIC ==========================*/
 app.controller('mwGraphicCtrl', function($scope, $http, $window) {
     let itemPerRow = 1;
-    allPreviewFolio = '';
+    let allPreviewFolio = [];
+    let previewFullFolio = [];
     $scope.imageToView = '';
     let wc = 360;
 
@@ -95,12 +96,14 @@ app.controller('mwGraphicCtrl', function($scope, $http, $window) {
             $scope.showedItem = 12;
             allPreviewFolio = response.data;
             for (let i = $scope.previewFullFolioCount - 1; i > 0; i--) {
-                j = Math.floor(Math.random() * (i + 1));
-                x = allPreviewFolio[i];
+                const j = Math.floor(Math.random() * i);
+                const x = allPreviewFolio[i];
                 allPreviewFolio[i] = allPreviewFolio[j];
                 allPreviewFolio[j] = x;
             }
-            previewFullFolio = allPreviewFolio.slice(0, $scope.showedItem);
+            for (i = 0; i < $scope.showedItem; i++) {
+                previewFullFolio.push(allPreviewFolio[i]);
+            }
 
             which = -1;
             coloums = [0, 0, 0];
@@ -118,8 +121,6 @@ app.controller('mwGraphicCtrl', function($scope, $http, $window) {
                     h = Math.round((element.height * wc) / element.width);
                     coloums[which] += h;
                     $scope.itemToView[which].push(element.url)
-                    console.log(which + ' - ' + h + ' - ' + element.url);
-                    console.log(coloums);
                 }
             );
         });
@@ -141,7 +142,7 @@ app.controller('mwGraphicCtrl', function($scope, $http, $window) {
     }
 
     $scope.showItem = function(item) {
-        $scope.imageToView = item.url;
+        $scope.imageToView = item;
     }
     $window.scrollTo(0, 0);
 
@@ -220,6 +221,10 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
             $scope.selectedCats.push(checkedItem);
         }
 
+        $scope.uiToView = [
+            [],
+            []
+        ];
         data.forEach(
             function(element) {
                 if ($scope.selectedCats.indexOf(element.category) > -1) {
@@ -230,15 +235,21 @@ app.controller('mwUiCtrl', function($scope, $http, $window) {
                 }
             }
         );
+
     }
 
-    $scope.showItem = function(type, item) {
+    $scope.showItem = function(item) {
         if (document.getElementById("previewObject")) {
             document.getElementById("previewObject").remove();
         }
         $scope.imageToView = item.url;
     }
-
+    $scope.showUi = function(item) {
+        if (document.getElementById("previewObject")) {
+            document.getElementById("previewObject").remove();
+        }
+        $scope.imageToView = item;
+    }
 });
 
 /* ======================================== */
