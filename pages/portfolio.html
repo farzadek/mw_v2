@@ -1,12 +1,21 @@
 <section class="section-portfolio-graphic" ng-controller="mwGraphicCtrl">
     <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-4" id="columnForW">
+            <div class="spinner-grow text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
             <img ng-repeat="item in itemToView[0] track by $index" ng-src="{{item}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-4">
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4">
+            <div class="spinner-grow text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
             <img ng-repeat="item in itemToView[1] track by $index" ng-src="{{item}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-4">
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4">
+            <div class="spinner-grow text-dark" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
             <img ng-repeat="item in itemToView[2] track by $index" ng-src="{{item}}" data-toggle="modal" data-target="#prevGrahicModal" ng-click="showItem(item)" class="mb-4">
         </div>
     </div>
