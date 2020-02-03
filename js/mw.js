@@ -180,7 +180,7 @@ app.controller('mwCtrl', function($scope, $location, $anchorScroll, $http, $wind
         if ($scope.contactForm.name == undefined || $scope.contactForm.name.trim().length == 0) {
             $scope.theForm[0].empty = true;
             err = true;
-        } else if (/^[a-zA-Z ]+$/.test($scope.contactForm.name) === false) {
+        } else if (/^[a-zA-Z- ]+$/.test($scope.contactForm.name) === false) {
             $scope.theForm[0].pattern = true;
             err = true;
         }

@@ -1114,9 +1114,21 @@ body {
     .row {
         &>div {
             margin-bottom: 5em;
-            img {
-                width: 100%;
-                cursor: pointer;
+            span {
+                position: relative;
+                display: block;
+                img {
+                    width: 100%;
+                    cursor: pointer;
+                    min-height: 50px;
+                }
+                .spinner-grow {
+                    position: absolute;
+                    top: 5px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: -1;
+                }
             }
         }
     }
